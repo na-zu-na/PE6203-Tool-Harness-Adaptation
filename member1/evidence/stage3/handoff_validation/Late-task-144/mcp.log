@@ -1,0 +1,27 @@
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│        ██╗███╗   ███╗  ██████╗ ██████╗                                       │
+│       ███║████╗ ████║ ██╔════╝ ██╔══██╗                                      │
+│       ╚██║██╔████╔██║ ██║      ██████╔╝                                      │
+│        ██║██║╚██╔╝██║ ██║      ██╔═══╝                                       │
+│        ██║██║ ╚═╝ ██║ ╚██████╗ ██║                                           │
+│        ╚═╝╚═╝     ╚═╝  ╚═════╝ ╚═╝                                           │
+│                                                                              │
+│        All your MCPs in one place                                            │
+│                                                                              │
+│   Version: 0.39.6                                                            │
+│   Transport: HTTP (127.0.0.1:3055)                                           │
+│   Servers: 0 configured                                                      │
+│   Auth: Disabled | Log: warn                                                 │
+│   Config: C:\Users\25537\桌面\实用工具\HomeWork\6203\PART 2\MCPEvol-Bench\   │
+│   outputs\stage3-20261029T223227Z-29893bbe\Late-task-144\runtime             │
+│                                                                              │
+│   https://github.com/1mcp-app/agent                                          │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+2026-10-29T22:35:34.898Z [WARN] message="Capability conflict in <private>.<private>: client <private> overriding existing value" event="capabilityManager.capability.conflict.in.client.overriding.existing.value.fadeac61"
+2026-10-29T22:35:39.254Z [WARN] message="Capability conflict in <private>.<private>: client <private> overriding existing value" event="capabilityManager.capability.conflict.in.client.overriding.existing.value.fadeac61"
+2026-10-29T22:35:39.347Z [WARN] message="Capability conflict in <private>.<private>: client <private> overriding existing value" event="capabilityManager.capability.conflict.in.client.overriding.existing.value.fadeac61"
+2026-10-29T22:35:42.182Z [WARN] message="Capability conflict in <private>.<private>: client <private> overriding existing value" event="capabilityManager.capability.conflict.in.client.overriding.existing.value.fadeac61"

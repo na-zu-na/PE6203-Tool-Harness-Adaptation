@@ -47,6 +47,7 @@ def main() -> int:
     parser.add_argument('--check-tools', action='store_true', help='Real MCP check without a model request')
     parser.add_argument('--version', choices=['Early', 'Middle', 'Late'], default='Early')
     parser.add_argument('--runtime-context', type=Path, help='Created by run_versions.py for a managed snapshot')
+    parser.add_argument('--knowledge-file', type=Path, help='Use this frozen tool-knowledge packet without live refresh')
     args = parser.parse_args()
     run_id = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid.uuid4().hex[:8]
     output = args.output_dir or ROOT / 'outputs' / f'stage1-{run_id}'
@@ -70,9 +71,11 @@ def main() -> int:
         with (output / 'events.jsonl').open('a', encoding='utf-8') as stream:
             text = json.dumps(item, ensure_ascii=False, default=str)
             stream.write((text.replace(key, '[REDACTED]') if key else text) + '\n')
+        if agent is not None:
+            save('trajectory.json', agent.messages)
 
     summary = {
-        'run_id': run_id, 'task_id': args.task_id, 'version': args.version,
+        'schema_version': 1, 'run_id': run_id, 'task_id': args.task_id, 'version': args.version,
         'environment': 'original config subset, resolved packages in member1 lock files',
         'strategy': 'initial_knowledge_stage1', 'status': 'running',
         'base_url': os.environ.get('ARK_BASE_URL', 'https://ark.cn-beijing.volces.com/api/v3'),
@@ -87,6 +90,7 @@ def main() -> int:
     stage = 'configuration_error'
     agent = None
     context = None
+    knowledge = None
     try:
         if args.runtime_context:
             from member1.stage2 import validate_context
@@ -106,6 +110,18 @@ def main() -> int:
             raise ValueError('ARK_API_KEY is missing. Set it in .env or the process environment.')
         task = load_task(args.task_id)
         save('task.json', task)
+        if args.knowledge_file:
+            from member1.knowledge import load_knowledge
+            knowledge = load_knowledge(args.knowledge_file, args.task_id)
+            if key and key.encode() in knowledge['raw_bytes']:
+                raise ValueError('Knowledge packet contains the local API credential')
+            (output / 'knowledge.json').write_bytes(knowledge['raw_bytes'])
+            summary.update(strategy=knowledge['packet']['strategy'], knowledge_mode='provided_file',
+                update_cost=knowledge['update_cost'], knowledge={
+                    'source_path': knowledge['source_path'], 'sha256': knowledge['sha256'],
+                    'source_version': knowledge['packet']['source_version'], 'snapshot': 'knowledge.json'})
+            record('knowledge_loaded', summary['knowledge'])
+            save('summary.json', summary)
         commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
         summary['project_commit'] = commit
         summary['benchmark_commit'] = context['benchmark_commit'] if context else '888c779a0fe735f612ca62bdd1fdd7c9e6bf8701'
@@ -119,7 +135,7 @@ def main() -> int:
         from custom.utils.test_utils import get_1mcp_server_tools, generate_tree_string
         tools, server_map = [], {}
         routes = {}
-        for server, names in ([] if context else task['servers'].items()):
+        for server, names in ([] if context or knowledge else task['servers'].items()):
             runtime_server = {'@guanxiong/mcp-server-time': 'clock'}.get(server, server)
             available = {t.name: t for t in get_1mcp_server_tools(status, runtime_server)}
             for name in names:
@@ -130,34 +146,38 @@ def main() -> int:
                 t = available[name]
                 tools.append({'name': t.name, 'description': t.description, 'inputSchema': t.inputSchema})
                 server_map[name] = runtime_server
-        if context:
+        if knowledge:
+            tools, server_map, routes = knowledge['tools'], knowledge['server_map'], knowledge['routes']
+        elif context:
             from member1.stage2 import select_tools
             tools, server_map, routes = select_tools(status, task, args.version)
         save('tools.json', tools)
+        summary['tools_sha256'] = hashlib.sha256(json.dumps(tools, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()
         record('tools_discovered', {'count': len(tools), 'server_map': server_map})
         if args.check_tools:
             # Calls are deterministic connectivity probes, not model-generated results.
             from custom.agents.SimpleOpenAIAgent import call_tool_with_1mcp
-            probes = [] if context else [('clock_1mcp_get_current_time', {'timezone': 'Asia/Tokyo'}),
+            probes = [] if context or knowledge else [('clock_1mcp_get_current_time', {'timezone': 'Asia/Tokyo'}),
                       ('calculator_1mcp_calculate', {'expression': '1+2*3'})]
             for name, arguments in probes:
                 result = asyncio.run(call_tool_with_1mcp(name, arguments, args.mcp_url))
                 record('manual_tool_probe', {'name': name, 'arguments': arguments, 'result': result.model_dump(mode='json')})
                 if result.isError:
                     raise RuntimeError(f'MCP probe returned an error: {name}')
-            summary['status'] = 'tools_ready'
+            summary['status'] = 'knowledge_ready' if knowledge else 'tools_ready'
         else:
             stage = 'model_error'
             from custom.agents.SimpleOpenAIAgent import ChatModel
             agent = ChatModel(
                 model_name=summary['model'], model_url=summary['base_url'], api_key=key,
                 temperature=0.2, max_new_tokens=4096, tools=tools,
-                max_round=max(10, 2 * len(tools)), tool_server_map=server_map,
+                max_round=10, tool_server_map=server_map,
                 file_exists=generate_tree_string(context['workspace'] if context else ROOT / 'anotation_path'),
                 mcp_server_url=args.mcp_url, event_callback=record,
                 stop_on_final_answer=True,
                 tool_routes=routes,
                 file_root=context['workspace'] if context else None,
+                knowledge_instructions=knowledge['instructions'] if knowledge else '',
             )
             summary['max_round'] = agent.max_round
             record('task_started', {'question': task['question'], 'system_prompt': agent.messages[0]})
@@ -190,10 +210,12 @@ def main() -> int:
         if agent is not None:
             save('partial_trajectory.json', agent.messages)
     finally:
+        if agent is not None:
+            save('trajectory.json', agent.messages)
         summary['finished_utc'] = datetime.now(timezone.utc).isoformat()
         save('summary.json', summary)
     print(f"Status: {summary['status']}\nOutput: {output}")
-    return 0 if summary['status'] in {'completed', 'tools_ready'} else 1
+    return 0 if summary['status'] in {'completed', 'tools_ready', 'knowledge_ready'} else 1
 
 
 if __name__ == '__main__':

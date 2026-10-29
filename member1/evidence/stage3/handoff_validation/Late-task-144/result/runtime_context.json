@@ -1,0 +1,53 @@
+{
+  "version": "Late",
+  "snapshot": "iter5",
+  "task_ids": [
+    144
+  ],
+  "mcp_url": "http://127.0.0.1:3055/mcp",
+  "services": {
+    "time_py": {
+      "original_server": "time",
+      "package": "mcp-server-time",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-time.exe",
+      "entry_sha256": "9feb978bccdac0dfa9a8c5a9f913fca4934fcc0642bfce0772787c9881606c35"
+    },
+    "time_mcp": {
+      "original_server": "time-mcp",
+      "package": "time-mcp",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\time-mcp\\.mcpevol\\iter5\\dist\\index.js",
+      "entry_sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+    }
+  },
+  "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-144\\workspace",
+  "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+  "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+  "evolution_layers": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+  "config_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-144\\runtime\\mcp.json",
+  "config_sha256": "6ec48f012e8e6e295e0e253f650692c0e0d0419183d75f6cf873528d29ee4216",
+  "launch_command": [
+    "D:\\Program Files\\nodejs\\node.EXE",
+    "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\@1mcp\\agent\\build\\index.js",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "3055",
+    "--transport",
+    "http",
+    "--log-level",
+    "warn",
+    "--config",
+    "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-144\\runtime\\mcp.json",
+    "--config-dir",
+    "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-144\\runtime",
+    "--enable-session-persistence=false",
+    "--enable-internal-tools=false"
+  ],
+  "pid": 27872
+}

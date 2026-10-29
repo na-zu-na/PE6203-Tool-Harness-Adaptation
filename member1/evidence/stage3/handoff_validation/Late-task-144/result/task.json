@@ -1,0 +1,32 @@
+{
+  "idx": 144,
+  "question": "I'm planning an international virtual meeting, and I need to know the exact current time in Tokyo and then convert it to New York time to coordinate with my colleagues there. Could you help me with this?",
+  "servers": {
+    "time-mcp": [
+      "current_time",
+      "convert_time"
+    ],
+    "time": [
+      "get_current_time",
+      "convert_time"
+    ]
+  },
+  "tool_calls": [
+    {
+      "tool_name": "current_time",
+      "parameters": {}
+    },
+    {
+      "tool_name": "convert_time",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_current_time",
+      "parameters": {}
+    },
+    {
+      "tool_name": "convert_time",
+      "parameters": {}
+    }
+  ]
+}

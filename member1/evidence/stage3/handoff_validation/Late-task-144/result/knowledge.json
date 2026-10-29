@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "task_id": 144,
+  "source_version": "Early",
+  "strategy": "no_update",
+  "instructions": "",
+  "tools": [
+    {
+      "name": "time_mcp__convert_time",
+      "description": "Convert time between timezones.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {
+          "sourceTimezone": {
+            "description": "The source timezone. IANA timezone name, e.g. Asia/Shanghai",
+            "type": "string"
+          },
+          "targetTimezone": {
+            "description": "The target timezone. IANA timezone name, e.g. Europe/London",
+            "type": "string"
+          },
+          "time": {
+            "description": "Date and time in 24-hour format. e.g. 2025-03-23 12:30:00",
+            "type": "string"
+          }
+        },
+        "required": [
+          "sourceTimezone",
+          "targetTimezone",
+          "time"
+        ],
+        "type": "object"
+      },
+      "source_name": "convert_time",
+      "source_server": "time-mcp"
+    },
+    {
+      "name": "time_mcp__current_time",
+      "description": "Get the current date and time.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {
+          "format": {
+            "default": "YYYY-MM-DD HH:mm:ss",
+            "description": "The format of the time",
+            "enum": [
+              "h:mm A",
+              "h:mm:ss A",
+              "YYYY-MM-DD HH:mm:ss",
+              "YYYY-MM-DD",
+              "YYYY-MM",
+              "MM/DD/YYYY",
+              "MM/DD/YY",
+              "YYYY/MM/DD",
+              "YYYY/MM"
+            ],
+            "type": "string"
+          },
+          "timezone": {
+            "description": "The timezone of the time, IANA timezone name, e.g. Asia/Shanghai",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "source_name": "current_time",
+      "source_server": "time-mcp"
+    },
+    {
+      "name": "time_py__convert_time",
+      "description": "Convert time between timezones",
+      "inputSchema": {
+        "properties": {
+          "source_timezone": {
+            "description": "Source IANA timezone name (e.g., 'America/New_York', 'Europe/London'). Use 'America/New_York' as local timezone if no source timezone provided by the user.",
+            "type": "string"
+          },
+          "target_timezone": {
+            "description": "Target IANA timezone name (e.g., 'Asia/Tokyo', 'America/San_Francisco'). Use 'America/New_York' as local timezone if no target timezone provided by the user.",
+            "type": "string"
+          },
+          "time": {
+            "description": "Time to convert in 24-hour format (HH:MM)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_timezone",
+          "time",
+          "target_timezone"
+        ],
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "source_name": "convert_time",
+      "source_server": "time"
+    },
+    {
+      "name": "time_py__get_current_time",
+      "description": "Get current time in a specific timezone",
+      "inputSchema": {
+        "properties": {
+          "timezone": {
+            "description": "IANA timezone name (e.g., 'America/New_York', 'Europe/London'). Use 'America/New_York' as local timezone if no timezone provided by the user.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "timezone"
+        ],
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "source_name": "get_current_time",
+      "source_server": "time"
+    }
+  ]
+}

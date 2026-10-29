@@ -8,7 +8,7 @@ PE6203 选题 4：研究工具环境发生变化后，如何更新 Agent 的工�
 
 - [x] 阶段一：搭建环境、接入方舟模型、运行一个原始任务并保存真实轨迹。
 - [x] 阶段二：实现 Early、Middle、Late 三版本运行，固定任务 28、144、156，完成 9 次真实验证。
-- [ ] 阶段三：接入三种工具知识更新策略。
+- [x] 阶段三：接入外部 JSON 工具知识、阻止自动刷新，提供统一原始结果读取接口。
 - [ ] 阶段四：联调、评分、实验分析与交付。
 
 阶段一已使用火山方舟 `deepseek-v4-flash-ga-260731` 运行任务 156，3 次工具调用均成功，模型答案与计算器结果一致。当前结果是运行连通性验证，尚未完成正式三策略对比和 TF / PE / ECS 评分。
@@ -21,6 +21,12 @@ PE6203 选题 4：研究工具环境发生变化后，如何更新 Agent 的工�
 
 ```powershell
 .venv\Scripts\python.exe -X utf8 member1/run_versions.py --version all
+```
+
+**阶段三的输入格式、成员 2/3 交接命令和防刷新验证见 [知识与结果交付说明](docs/stage3-knowledge-and-results-handoff.md)。** 使用冻结的 Early 知识运行三个版本：
+
+```powershell
+.venv\Scripts\python.exe -X utf8 member1/run_versions.py --version all --knowledge-dir member1/knowledge_examples/no_update
 ```
 
 安装依赖并在本地配置 `.env` 后，在仓库根目录打开两个 PowerShell 窗口：
@@ -53,6 +59,8 @@ PE6203 选题 4：研究工具环境发生变化后，如何更新 Agent 的工�
 | `docs/member1-development-plan.md` | 成员 1 开发计划与阶段完成记录 |
 | `docs/stage2-fixed-tasks-and-running.md` | 阶段二交付、固定任务清单与三版本验证 |
 | `member1/tasks_manifest.json`、`member1/run_versions.py` | 固定子集与版本运行入口 |
+| `docs/stage3-knowledge-and-results-handoff.md` | JSON 知识包与原始结果读取协议 |
+| `member1/knowledge.py`、`member1/read_results.py` | 知识包导出/校验与 JSONL 结果读取 |
 | `src/`、`servers/`、`anotation_path/` | 上游基准代码、服务配置和任务资源 |
 
 `.env`、本机运行时凭证、虚拟环境、Node 依赖和临时输出均通过 `.gitignore` 排除。仓库提供不含密钥的 `.env.example`；每位组员在本地配置自己的凭证。

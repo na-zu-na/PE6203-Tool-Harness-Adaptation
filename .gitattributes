@@ -2,3 +2,4 @@
 member1/snapshots/** -text -whitespace
 # Raw model/server evidence also keeps its original line endings and spacing.
 member1/evidence/** -text -whitespace
+member1/knowledge_examples/** -text -whitespace

@@ -1,0 +1,26 @@
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│        ██╗███╗   ███╗  ██████╗ ██████╗                                       │
+│       ███║████╗ ████║ ██╔════╝ ██╔══██╗                                      │
+│       ╚██║██╔████╔██║ ██║      ██████╔╝                                      │
+│        ██║██║╚██╔╝██║ ██║      ██╔═══╝                                       │
+│        ██║██║ ╚═╝ ██║ ╚██████╗ ██║                                           │
+│        ╚═╝╚═╝     ╚═╝  ╚═════╝ ╚═╝                                           │
+│                                                                              │
+│        All your MCPs in one place                                            │
+│                                                                              │
+│   Version: 0.39.6                                                            │
+│   Transport: HTTP (127.0.0.1:3055)                                           │
+│   Servers: 0 configured                                                      │
+│   Auth: Disabled | Log: warn                                                 │
+│   Config: C:\Users\25537\桌面\实用工具\HomeWork\6203\PART 2\MCPEvol-Bench\   │
+│   outputs\stage3-20261029T223227Z-29893bbe\Late-task-28\runtime              │
+│                                                                              │
+│   https://github.com/1mcp-app/agent                                          │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+2026-10-29T22:34:49.165Z [WARN] message="[files] MCP Filesystem Server running on stdio" serverName="files" source="backend-stderr" backendLogSequence=1 backendLogSourceId="static:files" backendLogEventKind="line"
+2026-10-29T22:34:49.166Z [WARN] message="[files] Current working directory (pwd): C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-28\\workspace" serverName="files" source="backend-stderr" backendLogSequence=2 backendLogSourceId="static:files" backendLogEventKind="line"
+2026-10-29T22:34:49.166Z [WARN] message="[files] Unrestricted filesystem access enabled" serverName="files" source="backend-stderr" backendLogSequence=3 backendLogSourceId="static:files" backendLogEventKind="line"

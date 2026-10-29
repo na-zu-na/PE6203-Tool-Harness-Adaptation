@@ -1,0 +1,594 @@
+{
+  "schema_version": 1,
+  "mode": "live_model",
+  "versions": [
+    "Early",
+    "Middle",
+    "Late"
+  ],
+  "task_ids": [
+    28,
+    144,
+    156
+  ],
+  "knowledge_inputs": {
+    "28": {
+      "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\member1\\knowledge_examples\\no_update\\28.json",
+      "sha256": "2b7a357d06da0e869f874854ab5a3c5663f70ae57e8cfc71656310e9b74484f1",
+      "snapshot": "knowledge_inputs/28.json"
+    },
+    "144": {
+      "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\member1\\knowledge_examples\\no_update\\144.json",
+      "sha256": "d0d697cebc1a80ec11f4fb33bbd4bdad0a50846df9c20fde4791cbbb022fc71a",
+      "snapshot": "knowledge_inputs/144.json"
+    },
+    "156": {
+      "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\member1\\knowledge_examples\\no_update\\156.json",
+      "sha256": "3120b96dec0f2d70c4ca5585b10b902af576737d1eb8ec16fd3eb2b05055611b",
+      "snapshot": "knowledge_inputs/156.json"
+    }
+  },
+  "runs": [
+    {
+      "schema_version": 1,
+      "version": "Early",
+      "task_id": 28,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-28",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\28.json",
+        "sha256": "2b7a357d06da0e869f874854ab5a3c5663f70ae57e8cfc71656310e9b74484f1",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223231Z-08256942",
+      "environment": "original",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3051/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:32:31.533505+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [],
+      "services": {
+        "files": {
+          "original_server": "mcp-filesystem-server",
+          "package": "mcp-filesystem-server",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\mcp-filesystem-server\\.mcpevol\\original\\server.js",
+          "entry_sha256": "36b183b163085c382c3f09f7c5f32077eba20657cdf706dc00adbbeeb094ccaa"
+        },
+        "tasks": {
+          "original_server": "mcp-tasks",
+          "package": "mcp-tasks",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\mcp-tasks\\.mcpevol\\original\\dist\\index.js",
+          "entry_sha256": "19a16be37051360fb10931ef783df9beea7adbfee7ea3abdb37e26494d06a54a"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-28\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "54b737bea5b8ce18f57c5fa1a785455bd01c8d669528b2bc8945565c52e95226",
+      "max_round": 10,
+      "tool_calls": 5,
+      "successful_tool_results": 5,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:33:06.110337+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Early",
+      "task_id": 144,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-144",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\144.json",
+        "sha256": "d0d697cebc1a80ec11f4fb33bbd4bdad0a50846df9c20fde4791cbbb022fc71a",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223310Z-e19aaaf8",
+      "environment": "original",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3051/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:33:10.947405+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [],
+      "services": {
+        "time_py": {
+          "original_server": "time",
+          "package": "mcp-server-time",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-time.exe",
+          "entry_sha256": "9feb978bccdac0dfa9a8c5a9f913fca4934fcc0642bfce0772787c9881606c35"
+        },
+        "time_mcp": {
+          "original_server": "time-mcp",
+          "package": "time-mcp",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\time-mcp\\.mcpevol\\original\\dist\\index.js",
+          "entry_sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-144\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "8a0b827dad7311ca59d2d827def8162e5b18d7b940ce7cbe13270b088c309d53",
+      "max_round": 10,
+      "tool_calls": 4,
+      "successful_tool_results": 4,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:33:25.486113+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Early",
+      "task_id": 156,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-156",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\156.json",
+        "sha256": "3120b96dec0f2d70c4ca5585b10b902af576737d1eb8ec16fd3eb2b05055611b",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223330Z-64bb590f",
+      "environment": "original",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3051/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:33:30.196624+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [],
+      "services": {
+        "clock": {
+          "original_server": "@guanxiong/mcp-server-time",
+          "package": "@guanxiong/mcp-server-time",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\@guanxiong\\mcp-server-time\\.mcpevol\\original\\index.js",
+          "entry_sha256": "0d0a7cff06a2416299c025d40a7a9f75c7e2ca809194839b776346a9f39465ad"
+        },
+        "calculator": {
+          "original_server": "calculator",
+          "package": "mcp-server-calculator",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-calculator.exe",
+          "entry_sha256": "b62095b9c0e92e8a63336cc0f99457fe515fae5b838db0d469f57b02e8c28777"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-156\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "093f21fb75d5d0db956961df8728a018745729bb4a196cac2312722b596f7232",
+      "max_round": 10,
+      "tool_calls": 3,
+      "successful_tool_results": 3,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:33:43.649641+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Middle",
+      "task_id": 28,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Middle-task-28",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\28.json",
+        "sha256": "2b7a357d06da0e869f874854ab5a3c5663f70ae57e8cfc71656310e9b74484f1",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223347Z-053ea215",
+      "environment": "iter3",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3053/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:33:47.805165+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [
+        1
+      ],
+      "services": {
+        "files": {
+          "original_server": "mcp-filesystem-server",
+          "package": "mcp-filesystem-server",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\mcp-filesystem-server\\.mcpevol\\iter3\\server.js",
+          "entry_sha256": "86549dd09c526178d67ad49fa27c5fb8ffbf2c0dba7dc4cd91e32683af823c23"
+        },
+        "tasks": {
+          "original_server": "mcp-tasks",
+          "package": "mcp-tasks",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\mcp-tasks\\.mcpevol\\iter3\\dist\\index.js",
+          "entry_sha256": "19a16be37051360fb10931ef783df9beea7adbfee7ea3abdb37e26494d06a54a"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Middle-task-28\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "54b737bea5b8ce18f57c5fa1a785455bd01c8d669528b2bc8945565c52e95226",
+      "max_round": 10,
+      "tool_calls": 5,
+      "successful_tool_results": 5,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:34:15.403472+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Middle",
+      "task_id": 144,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Middle-task-144",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\144.json",
+        "sha256": "d0d697cebc1a80ec11f4fb33bbd4bdad0a50846df9c20fde4791cbbb022fc71a",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223420Z-6c2afce4",
+      "environment": "iter3",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3053/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:34:20.141053+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [
+        1
+      ],
+      "services": {
+        "time_py": {
+          "original_server": "time",
+          "package": "mcp-server-time",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-time.exe",
+          "entry_sha256": "9feb978bccdac0dfa9a8c5a9f913fca4934fcc0642bfce0772787c9881606c35"
+        },
+        "time_mcp": {
+          "original_server": "time-mcp",
+          "package": "time-mcp",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\time-mcp\\.mcpevol\\iter3\\dist\\index.js",
+          "entry_sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Middle-task-144\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "8a0b827dad7311ca59d2d827def8162e5b18d7b940ce7cbe13270b088c309d53",
+      "max_round": 10,
+      "tool_calls": 3,
+      "successful_tool_results": 3,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:34:32.787449+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Middle",
+      "task_id": 156,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Middle-task-156",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\156.json",
+        "sha256": "3120b96dec0f2d70c4ca5585b10b902af576737d1eb8ec16fd3eb2b05055611b",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223437Z-71726f72",
+      "environment": "iter3",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3053/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:34:37.545236+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [
+        1
+      ],
+      "services": {
+        "clock": {
+          "original_server": "@guanxiong/mcp-server-time",
+          "package": "@guanxiong/mcp-server-time",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\@guanxiong\\mcp-server-time\\.mcpevol\\iter3\\index.js",
+          "entry_sha256": "a22dd6add78e5a65c8e7ab236ce660f7111557cf05f5d9da5b39b75e9a58e1af"
+        },
+        "calculator": {
+          "original_server": "calculator",
+          "package": "mcp-server-calculator",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-calculator.exe",
+          "entry_sha256": "b62095b9c0e92e8a63336cc0f99457fe515fae5b838db0d469f57b02e8c28777"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Middle-task-156\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "093f21fb75d5d0db956961df8728a018745729bb4a196cac2312722b596f7232",
+      "max_round": 10,
+      "tool_calls": 2,
+      "successful_tool_results": 2,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:34:45.893057+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Late",
+      "task_id": 28,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-28",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\28.json",
+        "sha256": "2b7a357d06da0e869f874854ab5a3c5663f70ae57e8cfc71656310e9b74484f1",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223450Z-d73f5c9f",
+      "environment": "iter5",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3055/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:34:50.764062+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "services": {
+        "files": {
+          "original_server": "mcp-filesystem-server",
+          "package": "mcp-filesystem-server",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\mcp-filesystem-server\\.mcpevol\\iter5\\server.js",
+          "entry_sha256": "cbf3400d9704eb24bbd6a8bf1e26a9a0f0206e028de8b5c887d80c39e1a39ed4"
+        },
+        "tasks": {
+          "original_server": "mcp-tasks",
+          "package": "mcp-tasks",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\mcp-tasks\\.mcpevol\\iter5\\dist\\index.js",
+          "entry_sha256": "19a16be37051360fb10931ef783df9beea7adbfee7ea3abdb37e26494d06a54a"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-28\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "54b737bea5b8ce18f57c5fa1a785455bd01c8d669528b2bc8945565c52e95226",
+      "max_round": 10,
+      "tool_calls": 6,
+      "successful_tool_results": 6,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:35:29.314045+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Late",
+      "task_id": 144,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-144",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\144.json",
+        "sha256": "d0d697cebc1a80ec11f4fb33bbd4bdad0a50846df9c20fde4791cbbb022fc71a",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223534Z-53a1827d",
+      "environment": "iter5",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3055/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:35:34.091806+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "services": {
+        "time_py": {
+          "original_server": "time",
+          "package": "mcp-server-time",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-time.exe",
+          "entry_sha256": "9feb978bccdac0dfa9a8c5a9f913fca4934fcc0642bfce0772787c9881606c35"
+        },
+        "time_mcp": {
+          "original_server": "time-mcp",
+          "package": "time-mcp",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\time-mcp\\.mcpevol\\iter5\\dist\\index.js",
+          "entry_sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-144\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "8a0b827dad7311ca59d2d827def8162e5b18d7b940ce7cbe13270b088c309d53",
+      "max_round": 10,
+      "tool_calls": 3,
+      "successful_tool_results": 3,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:35:47.191046+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    },
+    {
+      "schema_version": 1,
+      "version": "Late",
+      "task_id": 156,
+      "status": "completed",
+      "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-156",
+      "strategy": "no_update",
+      "knowledge_mode": "provided_file",
+      "update_cost": null,
+      "knowledge": {
+        "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\156.json",
+        "sha256": "3120b96dec0f2d70c4ca5585b10b902af576737d1eb8ec16fd3eb2b05055611b",
+        "source_version": "Early",
+        "snapshot": "knowledge.json"
+      },
+      "run_id": "20261029T223551Z-e4ecc896",
+      "environment": "iter5",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "model": "deepseek-v4-flash-ga-260731",
+      "temperature": 0.2,
+      "max_completion_tokens": 4096,
+      "stop_policy": "final_text_after_tool_result",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "mcp_url": "http://127.0.0.1:3055/mcp",
+      "mode": "live_model",
+      "started_utc": "2026-10-29T22:35:51.980575+00:00",
+      "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+      "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+      "evolution_layers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "services": {
+        "clock": {
+          "original_server": "@guanxiong/mcp-server-time",
+          "package": "@guanxiong/mcp-server-time",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\@guanxiong\\mcp-server-time\\.mcpevol\\iter5\\index.js",
+          "entry_sha256": "b5cc7e56366447c8c3954e423fc06cfe67a879b97a411ceb663115db52b0c9a2"
+        },
+        "calculator": {
+          "original_server": "calculator",
+          "package": "mcp-server-calculator",
+          "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-calculator.exe",
+          "entry_sha256": "b62095b9c0e92e8a63336cc0f99457fe515fae5b838db0d469f57b02e8c28777"
+        }
+      },
+      "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-156\\workspace",
+      "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+      "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+      "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+      "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+      "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+      "tools_sha256": "093f21fb75d5d0db956961df8728a018745729bb4a196cac2312722b596f7232",
+      "max_round": 10,
+      "tool_calls": 3,
+      "successful_tool_results": 3,
+      "stop": true,
+      "exceeded": false,
+      "finished_utc": "2026-10-29T22:36:00.814706+00:00",
+      "exit_code": 0,
+      "process_stopped": true
+    }
+  ]
+}

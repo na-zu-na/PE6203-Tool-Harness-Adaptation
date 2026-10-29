@@ -1,0 +1,27 @@
+{
+  "idx": 156,
+  "question": "What is the total number of seconds that have passed since the start of the day in Tokyo right now?",
+  "servers": {
+    "@guanxiong/mcp-server-time": [
+      "get_current_time",
+      "get_time_info"
+    ],
+    "calculator": [
+      "calculate"
+    ]
+  },
+  "tool_calls": [
+    {
+      "tool_name": "get_current_time",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_time_info",
+      "parameters": {}
+    },
+    {
+      "tool_name": "calculate",
+      "parameters": {}
+    }
+  ]
+}

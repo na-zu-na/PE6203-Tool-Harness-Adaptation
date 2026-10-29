@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T223551Z-e4ecc896",
+  "task_id": 156,
+  "version": "Late",
+  "environment": "iter5",
+  "strategy": "no_update",
+  "status": "completed",
+  "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+  "model": "deepseek-v4-flash-ga-260731",
+  "temperature": 0.2,
+  "max_completion_tokens": 4096,
+  "stop_policy": "final_text_after_tool_result",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "mcp_url": "http://127.0.0.1:3055/mcp",
+  "mode": "live_model",
+  "started_utc": "2026-10-29T22:35:51.980575+00:00",
+  "knowledge_mode": "provided_file",
+  "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+  "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+  "evolution_layers": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "services": {
+    "clock": {
+      "original_server": "@guanxiong/mcp-server-time",
+      "package": "@guanxiong/mcp-server-time",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\@guanxiong\\mcp-server-time\\.mcpevol\\iter5\\index.js",
+      "entry_sha256": "b5cc7e56366447c8c3954e423fc06cfe67a879b97a411ceb663115db52b0c9a2"
+    },
+    "calculator": {
+      "original_server": "calculator",
+      "package": "mcp-server-calculator",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-calculator.exe",
+      "entry_sha256": "b62095b9c0e92e8a63336cc0f99457fe515fae5b838db0d469f57b02e8c28777"
+    }
+  },
+  "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Late-task-156\\workspace",
+  "update_cost": null,
+  "knowledge": {
+    "source_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\knowledge_inputs\\156.json",
+    "sha256": "3120b96dec0f2d70c4ca5585b10b902af576737d1eb8ec16fd3eb2b05055611b",
+    "source_version": "Early",
+    "snapshot": "knowledge.json"
+  },
+  "project_commit": "be223a17b5c480e5e6b27b2f3d35092c943bb631",
+  "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+  "runner_sha256": "f033a87222b1bd15db92d5e28970908aca4538727bfcf408ea0beff4c54e6024",
+  "agent_sha256": "59ec587e0ba6e081986b0c25b5191e5b13718f266b16cdce674705a2baab4f86",
+  "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+  "tools_sha256": "093f21fb75d5d0db956961df8728a018745729bb4a196cac2312722b596f7232",
+  "max_round": 10,
+  "tool_calls": 3,
+  "successful_tool_results": 3,
+  "stop": true,
+  "exceeded": false,
+  "finished_utc": "2026-10-29T22:36:00.814706+00:00"
+}

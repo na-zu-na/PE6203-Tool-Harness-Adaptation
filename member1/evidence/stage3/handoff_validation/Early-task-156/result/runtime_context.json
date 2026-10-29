@@ -1,0 +1,48 @@
+{
+  "version": "Early",
+  "snapshot": "original",
+  "task_ids": [
+    156
+  ],
+  "mcp_url": "http://127.0.0.1:3051/mcp",
+  "services": {
+    "clock": {
+      "original_server": "@guanxiong/mcp-server-time",
+      "package": "@guanxiong/mcp-server-time",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\@guanxiong\\mcp-server-time\\.mcpevol\\original\\index.js",
+      "entry_sha256": "0d0a7cff06a2416299c025d40a7a9f75c7e2ca809194839b776346a9f39465ad"
+    },
+    "calculator": {
+      "original_server": "calculator",
+      "package": "mcp-server-calculator",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-calculator.exe",
+      "entry_sha256": "b62095b9c0e92e8a63336cc0f99457fe515fae5b838db0d469f57b02e8c28777"
+    }
+  },
+  "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-156\\workspace",
+  "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+  "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+  "evolution_layers": [],
+  "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+  "config_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-156\\runtime\\mcp.json",
+  "config_sha256": "9fb3e2bc07dc8ccdcd08d819cae50d5d50773edc63c164cb66fec8c613954271",
+  "launch_command": [
+    "D:\\Program Files\\nodejs\\node.EXE",
+    "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\@1mcp\\agent\\build\\index.js",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "3051",
+    "--transport",
+    "http",
+    "--log-level",
+    "warn",
+    "--config",
+    "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-156\\runtime\\mcp.json",
+    "--config-dir",
+    "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage3-20261029T223227Z-29893bbe\\Early-task-156\\runtime",
+    "--enable-session-persistence=false",
+    "--enable-internal-tools=false"
+  ],
+  "pid": 23096
+}

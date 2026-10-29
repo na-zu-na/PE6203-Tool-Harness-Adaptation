@@ -129,6 +129,7 @@ class ChatModel:
         stop_on_final_answer=False,
         tool_routes=None,
         file_root=None,
+        knowledge_instructions='',
     ):
         self.model_name = model_name
         self.model_url = model_url
@@ -173,6 +174,8 @@ class ChatModel:
 }]
         if file_root is not None:
             self.messages[0]['content'] = self.messages[0]['content'].replace('./anotation_path', str(file_root))
+        if knowledge_instructions:
+            self.messages[0]['content'] += '\n\nTool knowledge instructions:\n' + knowledge_instructions
         self.max_round = max_round
         self.tool_server_map = tool_server_map
 
@@ -219,7 +222,7 @@ class ChatModel:
         exceeded_flag = False
         round_num = 0
         try:
-            while not stop_flag and round_num <= self.max_round:
+            while not stop_flag and round_num < self.max_round:
                 raw_messages = self.messages
                 if not fschat_flag:
                     request_payload = {
@@ -232,6 +235,8 @@ class ChatModel:
                             f"Error in OpenAI response: {response.error['metadata']['raw']}"
                         )
                     response_message = response.choices[0].message
+                    if getattr(response, 'usage', None) is not None:
+                        self.event_callback('model_usage', response.usage.model_dump(exclude_none=True))
                 else:
                     from custom.utils.fastchat_utils import chat_with_fastchat
                     response_message = chat_with_fastchat(this_messages=self.messages, model_name=self.model_name, tools=self.tools)
@@ -299,19 +304,19 @@ class ChatModel:
                         except asyncio.TimeoutError:
                             logger.error(f"Tool call {tool_name} timed out.")
                             result = "Tool call timed out."
-                            tool_id = None
+                            tool_id = tool_call.id
                             self.event_callback('tool_error', {'name': tool_name, 'error': result})
                         except Exception as e:
                             logger.error(f"Error calling tool {tool_name}: {e}")
                             result = f"Error: {str(e)}"
                             tool_id = tool_call.id
                             self.event_callback('tool_error', {'name': tool_call.function.name, 'error': str(e)})
-                        self.event_callback('tool_result', {
+                        raw_tool_event = {
                             'name': tool_call.function.name,
                             'arguments': tool_call.function.arguments,
                             'tool_call_id': tool_call.id,
                             'result': result.model_dump(mode='json', exclude_none=True) if hasattr(result, 'model_dump') else str(result),
-                        })
+                        }
                         if hasattr(result, 'content'):
                             result = str(result.content)[:500]+'...'
                         else:
@@ -323,12 +328,13 @@ class ChatModel:
                                 "content": result,
                             }
                         )
+                        self.event_callback('tool_result', raw_tool_event)
         except Exception as e:
             self.event_callback('model_error', {'error': str(e)})
             logger.error(f"Error processing query '{query}': {e}")
             final_text.append(f"Error: {str(e)}")
             self.messages.append({"role": "assistant", "content": str(e)})
-        if round_num >= self.max_round:
+        if not stop_flag and round_num >= self.max_round:
             exceeded_flag = True
         return "\n".join(final_text), self.messages, stop_flag, exceeded_flag
 
