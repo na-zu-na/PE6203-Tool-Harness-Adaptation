@@ -1,0 +1,11 @@
+{
+  "upstream_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+  "run_command": ".venv/Scripts/python.exe -X utf8 member1/run_task.py",
+  "files_sha256": {
+    "member1/run_task.py": "fc02d4b3e1e261bf2e7eacb48ffff9397b65d4c01623ad371a760b14f6b38117",
+    "src/custom/agents/SimpleOpenAIAgent.py": "4b7a210bbd6d2ef4114b7a0fe25fea3c4a939e4edf8217f48586313edda57385",
+    "member1/prepare_environment.py": "55c1496fd5c16a0d793784d0f900c89ac9cde821a109ece5020706b89048fa3e",
+    "package-lock.json": "a6d09709a1da9b973cc387ad4393888d026406e1544ca0fde8fe62a5c3b244f4",
+    "member1/requirements-lock.txt": "34be0ac9d0f03d033d65d31df9b33dbb0f2d71a0dcf4b6b2518775743e43930c"
+  }
+}

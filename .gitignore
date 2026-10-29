@@ -1,0 +1,20 @@
+.venv/
+node_modules/
+.npm-cache/
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+.superpowers/
+outputs/
+*.local.json
+# 1mcp writes runtime state beside the selected config file.
+member1/template-context-capability.json
+member1/runtime.owner/
+member1/admin/
+member1/server.pid
+member1/runtime-identity.json
+member1/presets.json
+member1/sessions/
+member1/clientSessions/

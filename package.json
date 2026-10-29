@@ -1,0 +1,10 @@
+{
+  "name": "pe6203-member1-stage1",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local MCP dependencies for the MCPEvol-Bench stage-one run",
+  "dependencies": {
+    "@1mcp/agent": "0.39.6",
+    "@guanxiong/mcp-server-time": "1.0.0"
+  }
+}

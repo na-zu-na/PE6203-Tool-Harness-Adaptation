@@ -4,7 +4,6 @@ import uuid
 
 from openai.types.chat import ChatCompletionToolParam, ChatCompletionMessageToolCall
 
-from custom.utils.fastchat_utils import chat_with_fastchat
 from custom.utils.test_utils import offset_date, generate_tree_string
 
 SINGLE_SERVER_INTERATION_SYSTEM_PROMPT = '''You are an AI agent connected to the MCP (Model Context Protocol) server. Based on the user's request, select and invoke tools to fulfill the task accurately and efficiently. 
@@ -124,7 +123,10 @@ class ChatModel:
         max_round=15,
         tool_server_map=None,
         file_exists='',
-        mcp_server_url='http://127.0.0.1:3050/mcp'
+        mcp_server_url='http://127.0.0.1:3050/mcp',
+        event_callback=None,
+        request_timeout=60,
+        stop_on_final_answer=False,
     ):
         self.model_name = model_name
         self.model_url = model_url
@@ -133,7 +135,11 @@ class ChatModel:
         self.client = OpenAI(
             api_key=api_key,
             base_url=model_url,
+            timeout=request_timeout,
+            max_retries=0,
         )
+        self.event_callback = event_callback or (lambda kind, value: None)
+        self.stop_on_final_answer = stop_on_final_answer
         self.url = mcp_server_url
         self.extra_body = {"enable_thinking": True}
         # self.init_extra_body()
@@ -222,6 +228,7 @@ class ChatModel:
                         )
                     response_message = response.choices[0].message
                 else:
+                    from custom.utils.fastchat_utils import chat_with_fastchat
                     response_message = chat_with_fastchat(this_messages=self.messages, model_name=self.model_name, tools=self.tools)
 
                 round_num += 1
@@ -234,6 +241,7 @@ class ChatModel:
                     response_message.tool_calls = tool_call_list
 
                 self.messages.append(response_message.model_dump(exclude_none=True))
+                self.event_callback('model_response', response_message.model_dump(exclude_none=True))
                 if hasattr(response_message, 'content'):
                     content = response_message.content
                 else:
@@ -247,6 +255,10 @@ class ChatModel:
                         and not response_message.tool_calls
                         # and not response_message.function_call
                 ):
+                    if self.stop_on_final_answer and any(m.get('role') == 'tool' for m in self.messages):
+                        final_text.append(content)
+                        stop_flag = True
+                        continue
                     no_tool_count += 1
                     if no_tool_count == 3:
                         final_text.append(content)
@@ -283,10 +295,18 @@ class ChatModel:
                             logger.error(f"Tool call {tool_name} timed out.")
                             result = "Tool call timed out."
                             tool_id = None
+                            self.event_callback('tool_error', {'name': tool_name, 'error': result})
                         except Exception as e:
                             logger.error(f"Error calling tool {tool_name}: {e}")
                             result = f"Error: {str(e)}"
                             tool_id = tool_call.id
+                            self.event_callback('tool_error', {'name': tool_call.function.name, 'error': str(e)})
+                        self.event_callback('tool_result', {
+                            'name': tool_call.function.name,
+                            'arguments': tool_call.function.arguments,
+                            'tool_call_id': tool_call.id,
+                            'result': result.model_dump(mode='json', exclude_none=True) if hasattr(result, 'model_dump') else str(result),
+                        })
                         if hasattr(result, 'content'):
                             result = str(result.content)[:500]+'...'
                         else:
@@ -299,6 +319,7 @@ class ChatModel:
                             }
                         )
         except Exception as e:
+            self.event_callback('model_error', {'error': str(e)})
             logger.error(f"Error processing query '{query}': {e}")
             final_text.append(f"Error: {str(e)}")
             self.messages.append({"role": "assistant", "content": str(e)})
