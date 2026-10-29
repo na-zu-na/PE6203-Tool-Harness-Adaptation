@@ -1,0 +1,135 @@
+[
+  {
+    "name": "clock__convert_timezone",
+    "description": "将指定时间从一个时区转换到另一个时区。支持使用 IANA 时区名称进行转换",
+    "inputSchema": {
+      "properties": {
+        "compare_with_utc": {
+          "description": "是否同时显示 UTC 时间以便对比。默认为 false",
+          "type": "boolean"
+        },
+        "format": {
+          "description": "输出格式：'iso'（ISO 8601）、'locale'（本地格式）、'timestamp'（时间戳）。默认为 'iso'",
+          "enum": [
+            "iso",
+            "locale",
+            "timestamp"
+          ],
+          "type": "string"
+        },
+        "from_timezone": {
+          "description": "源时区（例如：Asia/Shanghai, UTC, America/New_York）。如果未提供，使用系统时区",
+          "type": "string"
+        },
+        "include_dst_info": {
+          "description": "是否包含夏令时（DST）信息。默认为 false",
+          "type": "boolean"
+        },
+        "include_offset": {
+          "description": "是否包含 UTC 偏移信息（如 +08:00）。默认为 false",
+          "type": "boolean"
+        },
+        "include_time_difference": {
+          "description": "是否包含源时区和目标时区之间的时间差（以小时为单位）。默认为 false",
+          "type": "boolean"
+        },
+        "include_timezone_abbr": {
+          "description": "是否包含时区缩写（如 CST, EST, JST）。默认为 false",
+          "type": "boolean"
+        },
+        "output_locale": {
+          "description": "用于 'locale' 格式的区域设置（如 'en-US', 'ja-JP'）。默认为 'zh-CN'",
+          "type": "string"
+        },
+        "time": {
+          "description": "要转换的时间。支持 ISO 8601 格式（如 '2024-03-15T10:30:00'）或时间戳（毫秒）。如果未提供，使用当前时间",
+          "type": "string"
+        },
+        "to_timezone": {
+          "description": "目标时区（例如：Asia/Tokyo, Europe/London）。必填参数",
+          "type": "string"
+        }
+      },
+      "required": [
+        "to_timezone"
+      ],
+      "type": "object",
+      "$schema": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "source_name": "convert_timezone",
+    "source_server": "@guanxiong/mcp-server-time"
+  },
+  {
+    "name": "clock__get_current_time",
+    "description": "获取当前日期和时间",
+    "inputSchema": {
+      "properties": {
+        "format": {
+          "description": "时间格式：'iso'（ISO 8601）、'locale'（本地格式）、'timestamp'（时间戳）。默认为 'iso'",
+          "enum": [
+            "iso",
+            "locale",
+            "timestamp"
+          ],
+          "type": "string"
+        },
+        "timezone": {
+          "description": "时区（例如：Asia/Shanghai, UTC, America/New_York）。默认为系统时区",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "$schema": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "source_name": "get_current_time",
+    "source_server": "@guanxiong/mcp-server-time"
+  },
+  {
+    "name": "clock__get_time_info",
+    "description": "获取详细的时间信息，包括年、月、日、时、分、秒等",
+    "inputSchema": {
+      "properties": {
+        "hour12": {
+          "description": "是否使用 12 小时制格式化时区时间。默认为 false",
+          "type": "boolean"
+        },
+        "includeTimestamp": {
+          "description": "是否在结果中包含毫秒级时间戳。默认为 false",
+          "type": "boolean"
+        },
+        "locale": {
+          "description": "用于本地化星期显示的区域设置。默认为 zh-CN",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "时区（例如：Asia/Shanghai, UTC）。默认为系统时区",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "$schema": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "source_name": "get_time_info",
+    "source_server": "@guanxiong/mcp-server-time"
+  },
+  {
+    "name": "calculator__calculate",
+    "description": "Calculates/evaluates the given expression.",
+    "inputSchema": {
+      "properties": {
+        "expression": {
+          "title": "Expression",
+          "type": "string"
+        }
+      },
+      "required": [
+        "expression"
+      ],
+      "title": "calculateArguments",
+      "type": "object",
+      "$schema": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "source_name": "calculate",
+    "source_server": "calculator"
+  }
+]

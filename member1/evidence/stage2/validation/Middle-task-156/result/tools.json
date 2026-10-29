@@ -1,0 +1,75 @@
+[
+  {
+    "name": "clock__get_current_time",
+    "description": "获取当前日期和时间",
+    "inputSchema": {
+      "properties": {
+        "format": {
+          "description": "时间格式：'iso'（ISO 8601）、'locale'（本地格式）、'timestamp'（时间戳）。默认为 'iso'",
+          "enum": [
+            "iso",
+            "locale",
+            "timestamp"
+          ],
+          "type": "string"
+        },
+        "timezone": {
+          "description": "时区（例如：Asia/Shanghai, UTC, America/New_York）。默认为系统时区",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "$schema": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "source_name": "get_current_time",
+    "source_server": "@guanxiong/mcp-server-time"
+  },
+  {
+    "name": "clock__get_time_info",
+    "description": "获取详细的时间信息，包括年、月、日、时、分、秒等",
+    "inputSchema": {
+      "properties": {
+        "hour12": {
+          "description": "是否使用 12 小时制格式化时区时间。默认为 false",
+          "type": "boolean"
+        },
+        "includeTimestamp": {
+          "description": "是否在结果中包含毫秒级时间戳。默认为 false",
+          "type": "boolean"
+        },
+        "locale": {
+          "description": "用于本地化星期显示的区域设置。默认为 zh-CN",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "时区（例如：Asia/Shanghai, UTC）。默认为系统时区",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "$schema": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "source_name": "get_time_info",
+    "source_server": "@guanxiong/mcp-server-time"
+  },
+  {
+    "name": "calculator__calculate",
+    "description": "Calculates/evaluates the given expression.",
+    "inputSchema": {
+      "properties": {
+        "expression": {
+          "title": "Expression",
+          "type": "string"
+        }
+      },
+      "required": [
+        "expression"
+      ],
+      "title": "calculateArguments",
+      "type": "object",
+      "$schema": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "source_name": "calculate",
+    "source_server": "calculator"
+  }
+]

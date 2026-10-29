@@ -127,6 +127,8 @@ class ChatModel:
         event_callback=None,
         request_timeout=60,
         stop_on_final_answer=False,
+        tool_routes=None,
+        file_root=None,
     ):
         self.model_name = model_name
         self.model_url = model_url
@@ -140,6 +142,7 @@ class ChatModel:
         )
         self.event_callback = event_callback or (lambda kind, value: None)
         self.stop_on_final_answer = stop_on_final_answer
+        self.tool_routes = tool_routes or {}
         self.url = mcp_server_url
         self.extra_body = {"enable_thinking": True}
         # self.init_extra_body()
@@ -168,6 +171,8 @@ class ChatModel:
             FILE_EXISTS=file_exists
         )
 }]
+        if file_root is not None:
+            self.messages[0]['content'] = self.messages[0]['content'].replace('./anotation_path', str(file_root))
         self.max_round = max_round
         self.tool_server_map = tool_server_map
 
@@ -284,7 +289,7 @@ class ChatModel:
                             tool_args = json.loads(tool_call.function.arguments)
                             tool_id = tool_call.id
                             tool_server_name = self.tool_server_map[tool_name]
-                            tool_1mcp_name = f'{tool_server_name}_1mcp_{tool_name}'
+                            tool_1mcp_name = self.tool_routes.get(tool_name, f'{tool_server_name}_1mcp_{tool_name}')
                             # if 'music-analysis' in tool_1mcp_name:
                             #     result = asyncio.run(call_tool_with_1mcp(tool_1mcp_name, tool_args, 'http://127.0.0.1:13050:mcp'))
                             # else:

@@ -1,0 +1,175 @@
+{
+  "source": "https://huggingface.co/datasets/anonymous2233/evol-servers",
+  "revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+  "extraction": "HTTP Range ZIP extraction; package metadata and executable entrypoints only; runtime dependencies are npm-locked",
+  "files": [
+    {
+      "snapshot": "original",
+      "server": "@guanxiong/mcp-server-time",
+      "archive_path": "node_modules/@guanxiong/mcp-server-time/package.json",
+      "local_path": "member1/snapshots/original/clock/package.json",
+      "sha256": "a394dcdfdcd6266d7c966d35d48f199f8aff6f15add4e7a24b2e11a4b9b06592"
+    },
+    {
+      "snapshot": "original",
+      "server": "@guanxiong/mcp-server-time",
+      "archive_path": "node_modules/@guanxiong/mcp-server-time/index.js",
+      "local_path": "member1/snapshots/original/clock/index.js",
+      "sha256": "0d0a7cff06a2416299c025d40a7a9f75c7e2ca809194839b776346a9f39465ad"
+    },
+    {
+      "snapshot": "original",
+      "server": "time-mcp",
+      "archive_path": "node_modules/time-mcp/package.json",
+      "local_path": "member1/snapshots/original/time_mcp/package.json",
+      "sha256": "954afa21aff9fea80da5fbda752d60a393a22aa77b5db953a19a41cad2ea7cd7"
+    },
+    {
+      "snapshot": "original",
+      "server": "time-mcp",
+      "archive_path": "node_modules/time-mcp/dist/index.js",
+      "local_path": "member1/snapshots/original/time_mcp/dist/index.js",
+      "sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+    },
+    {
+      "snapshot": "original",
+      "server": "mcp-filesystem-server",
+      "archive_path": "node_modules/mcp-filesystem-server/package.json",
+      "local_path": "member1/snapshots/original/files/package.json",
+      "sha256": "2eb5e82fec2f04113d62a7ac2de36fd66b6caa5dd5df6c44f913f66bdea377b0"
+    },
+    {
+      "snapshot": "original",
+      "server": "mcp-filesystem-server",
+      "archive_path": "node_modules/mcp-filesystem-server/server.js",
+      "local_path": "member1/snapshots/original/files/server.js",
+      "sha256": "36b183b163085c382c3f09f7c5f32077eba20657cdf706dc00adbbeeb094ccaa"
+    },
+    {
+      "snapshot": "original",
+      "server": "mcp-tasks",
+      "archive_path": "node_modules/mcp-tasks/package.json",
+      "local_path": "member1/snapshots/original/tasks/package.json",
+      "sha256": "ede3f50cf63508b060cc2a78ce7581cb5aac5c74ce1d2098342c05c2f1a0536b"
+    },
+    {
+      "snapshot": "original",
+      "server": "mcp-tasks",
+      "archive_path": "node_modules/mcp-tasks/dist/index.js",
+      "local_path": "member1/snapshots/original/tasks/dist/index.js",
+      "sha256": "19a16be37051360fb10931ef783df9beea7adbfee7ea3abdb37e26494d06a54a"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "@guanxiong/mcp-server-time",
+      "archive_path": "node_modules/@guanxiong/mcp-server-time/package.json",
+      "local_path": "member1/snapshots/iter3/clock/package.json",
+      "sha256": "a394dcdfdcd6266d7c966d35d48f199f8aff6f15add4e7a24b2e11a4b9b06592"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "@guanxiong/mcp-server-time",
+      "archive_path": "node_modules/@guanxiong/mcp-server-time/index.js",
+      "local_path": "member1/snapshots/iter3/clock/index.js",
+      "sha256": "a22dd6add78e5a65c8e7ab236ce660f7111557cf05f5d9da5b39b75e9a58e1af"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "time-mcp",
+      "archive_path": "node_modules/time-mcp/package.json",
+      "local_path": "member1/snapshots/iter3/time_mcp/package.json",
+      "sha256": "954afa21aff9fea80da5fbda752d60a393a22aa77b5db953a19a41cad2ea7cd7"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "time-mcp",
+      "archive_path": "node_modules/time-mcp/dist/index.js",
+      "local_path": "member1/snapshots/iter3/time_mcp/dist/index.js",
+      "sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "mcp-filesystem-server",
+      "archive_path": "node_modules/mcp-filesystem-server/package.json",
+      "local_path": "member1/snapshots/iter3/files/package.json",
+      "sha256": "2eb5e82fec2f04113d62a7ac2de36fd66b6caa5dd5df6c44f913f66bdea377b0"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "mcp-filesystem-server",
+      "archive_path": "node_modules/mcp-filesystem-server/server.js",
+      "local_path": "member1/snapshots/iter3/files/server.js",
+      "sha256": "86549dd09c526178d67ad49fa27c5fb8ffbf2c0dba7dc4cd91e32683af823c23"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "mcp-tasks",
+      "archive_path": "node_modules/mcp-tasks/package.json",
+      "local_path": "member1/snapshots/iter3/tasks/package.json",
+      "sha256": "ede3f50cf63508b060cc2a78ce7581cb5aac5c74ce1d2098342c05c2f1a0536b"
+    },
+    {
+      "snapshot": "iter3",
+      "server": "mcp-tasks",
+      "archive_path": "node_modules/mcp-tasks/dist/index.js",
+      "local_path": "member1/snapshots/iter3/tasks/dist/index.js",
+      "sha256": "19a16be37051360fb10931ef783df9beea7adbfee7ea3abdb37e26494d06a54a"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "@guanxiong/mcp-server-time",
+      "archive_path": "node_modules/@guanxiong/mcp-server-time/package.json",
+      "local_path": "member1/snapshots/iter5/clock/package.json",
+      "sha256": "a394dcdfdcd6266d7c966d35d48f199f8aff6f15add4e7a24b2e11a4b9b06592"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "@guanxiong/mcp-server-time",
+      "archive_path": "node_modules/@guanxiong/mcp-server-time/index.js",
+      "local_path": "member1/snapshots/iter5/clock/index.js",
+      "sha256": "b5cc7e56366447c8c3954e423fc06cfe67a879b97a411ceb663115db52b0c9a2"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "time-mcp",
+      "archive_path": "node_modules/time-mcp/package.json",
+      "local_path": "member1/snapshots/iter5/time_mcp/package.json",
+      "sha256": "954afa21aff9fea80da5fbda752d60a393a22aa77b5db953a19a41cad2ea7cd7"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "time-mcp",
+      "archive_path": "node_modules/time-mcp/dist/index.js",
+      "local_path": "member1/snapshots/iter5/time_mcp/dist/index.js",
+      "sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "mcp-filesystem-server",
+      "archive_path": "node_modules/mcp-filesystem-server/package.json",
+      "local_path": "member1/snapshots/iter5/files/package.json",
+      "sha256": "2eb5e82fec2f04113d62a7ac2de36fd66b6caa5dd5df6c44f913f66bdea377b0"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "mcp-filesystem-server",
+      "archive_path": "node_modules/mcp-filesystem-server/server.js",
+      "local_path": "member1/snapshots/iter5/files/server.js",
+      "sha256": "cbf3400d9704eb24bbd6a8bf1e26a9a0f0206e028de8b5c887d80c39e1a39ed4"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "mcp-tasks",
+      "archive_path": "node_modules/mcp-tasks/package.json",
+      "local_path": "member1/snapshots/iter5/tasks/package.json",
+      "sha256": "ede3f50cf63508b060cc2a78ce7581cb5aac5c74ce1d2098342c05c2f1a0536b"
+    },
+    {
+      "snapshot": "iter5",
+      "server": "mcp-tasks",
+      "archive_path": "node_modules/mcp-tasks/dist/index.js",
+      "local_path": "member1/snapshots/iter5/tasks/dist/index.js",
+      "sha256": "19a16be37051360fb10931ef783df9beea7adbfee7ea3abdb37e26494d06a54a"
+    }
+  ]
+}

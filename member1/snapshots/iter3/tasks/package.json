@@ -1,0 +1,94 @@
+{
+  "name": "mcp-tasks",
+  "version": "1.6.1",
+  "type": "module",
+  "description": "An efficient task manager. Designed to minimize tool confusion and maximize LLM budget efficiency while providing powerful search, filtering, and organization capabilities across multiple file formats (Markdown, JSON, YAML)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-tasks": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run build:code",
+    "build:code": "npm run ts -- bin/bundle.ts && echo 'Build succeeded'",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist --declarationMap false",
+    "build:check": "tsc --noEmit",
+    "build:watch": "tsc --watch --incremental",
+    "build:clean": "npx rimraf dist/* *.tsbuildinfo",
+    "bundle:types": "rollup --config rollup.config.dts.js",
+    "bundle:all": "npm run build:types && npm run build:code && npm run bundle:types",
+    "start": "dist/index.js",
+    "start:check": "dist/index.js --check",
+    "start:http": "TRANSPORT=http dist/index.js",
+    "cli": "npm run ts -- src/index.ts",
+    "dev": "npm run ts -- src/index.ts",
+    "dev:http": "TRANSPORT=http npm run dev",
+    "inspect": "npx fastmcp inspect src/index.ts",
+    "ts": "tsx",
+    "eslint": "eslint --cache",
+    "lint": "npm run eslint -- src/**/*.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:full": "npm run build:check && npm run lint",
+    "test": "npm run ts -- bin/test-tools.ts",
+    "test:full": "npm run build:clean && npm run lint:full && SILENT=true npm test && npm run bundle:all && npm run start:check",
+    "prepack": "npm run test:full",
+    "publish:dry": "npm pack --dry-run",
+    "publish:npm": "npm publish",
+    "publish:docker": "bin/docker-publish.sh",
+    "publish:all": "npm run publish:npm && npm run publish:docker && npm run publish:test",
+    "publish:test": "npx mcp-tasks --help",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
+  },
+  "keywords": [
+    "mcp",
+    "task",
+    "management",
+    "llm",
+    "model-context-protocol",
+    "ai",
+    "claude",
+    "cursor",
+    "todo",
+    "productivity"
+  ],
+  "author": "Ariel Flesler <aflesler@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flesler/mcp-tasks.git"
+  },
+  "homepage": "https://github.com/flesler/mcp-tasks#readme",
+  "bugs": {
+    "url": "https://github.com/flesler/mcp-tasks/issues"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "fastmcp": "^3.9.0",
+    "lodash": "^4.17.21",
+    "yaml": "^2.8.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "esbuild": "^0.25.8",
+    "eslint": "^8.57.0",
+    "rollup": "^4.46.2",
+    "rollup-plugin-delete": "^3.0.1",
+    "rollup-plugin-dts": "^6.2.1",
+    "tsx": "^4.20.3",
+    "types-package-json": "^2.0.39",
+    "typescript": "^5.8.3"
+  }
+}

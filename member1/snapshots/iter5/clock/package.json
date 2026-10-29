@@ -1,0 +1,43 @@
+{
+  "name": "@guanxiong/mcp-server-time",
+  "version": "1.0.0",
+  "description": "A simple Model Context Protocol (MCP) server for getting current time with timezone support",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "mcp-server-time": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "time",
+    "timezone",
+    "model-context-protocol",
+    "cursor",
+    "claude",
+    "ai"
+  ],
+  "author": "guanxiong.shen <guanxiong.shen@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guanxiong-shen/mcp-server-time.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guanxiong-shen/mcp-server-time/issues"
+  },
+  "homepage": "https://github.com/guanxiong-shen/mcp-server-time#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ]
+}

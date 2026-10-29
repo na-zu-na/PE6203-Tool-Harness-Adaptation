@@ -7,7 +7,7 @@ PE6203 选题 4：研究工具环境发生变化后，如何更新 Agent 的工�
 ## 当前进度
 
 - [x] 阶段一：搭建环境、接入方舟模型、运行一个原始任务并保存真实轨迹。
-- [ ] 阶段二：完善 Early、Middle、Late 三版本运行与固定任务清单。
+- [x] 阶段二：实现 Early、Middle、Late 三版本运行，固定任务 28、144、156，完成 9 次真实验证。
 - [ ] 阶段三：接入三种工具知识更新策略。
 - [ ] 阶段四：联调、评分、实验分析与交付。
 
@@ -16,6 +16,12 @@ PE6203 选题 4：研究工具环境发生变化后，如何更新 Agent 的工�
 ## 开始运行
 
 环境安装、模型配置和实际验证过的命令见 [成员 1 运行说明](member1/README.md)。
+
+**阶段二的固定清单、版本映射、运行命令和验证结果见 [阶段二交付说明](docs/stage2-fixed-tasks-and-running.md)。** 阶段二入口可自动启动和清理服务：
+
+```powershell
+.venv\Scripts\python.exe -X utf8 member1/run_versions.py --version all
+```
 
 安装依赖并在本地配置 `.env` 后，在仓库根目录打开两个 PowerShell 窗口：
 
@@ -44,7 +50,9 @@ PE6203 选题 4：研究工具环境发生变化后，如何更新 Agent 的工�
 | `member1/evidence/success/` | 真实成功运行的原始结果与轨迹 |
 | `member1/evidence/provenance.json` | 运行命令、上游版本和代码哈希 |
 | `member1/requirements-lock.txt`、`package-lock.json` | 本次运行依赖版本 |
-| `docs/member1-development-plan.md` | 成员 1 开发计划及阶段一完成记录 |
+| `docs/member1-development-plan.md` | 成员 1 开发计划与阶段完成记录 |
+| `docs/stage2-fixed-tasks-and-running.md` | 阶段二交付、固定任务清单与三版本验证 |
+| `member1/tasks_manifest.json`、`member1/run_versions.py` | 固定子集与版本运行入口 |
 | `src/`、`servers/`、`anotation_path/` | 上游基准代码、服务配置和任务资源 |
 
 `.env`、本机运行时凭证、虚拟环境、Node 依赖和临时输出均通过 `.gitignore` 排除。仓库提供不含密钥的 `.env.example`；每位组员在本地配置自己的凭证。

@@ -1,0 +1,255 @@
+{
+  "idx": 28,
+  "question": "Could you compare the contents of txt/log_yesterday.txt and txt/log_today.txt, summarize what changed, and then create new to-do tasks for anything that looks like an unresolved issue? Please store those tasks in a tasks.md file under my current project directory.",
+  "servers": {
+    "mcp-filesystem-server": [
+      "read_multiple_files"
+    ],
+    "mcp-tasks": [
+      "tasks_setup",
+      "tasks_add"
+    ]
+  },
+  "tool_calls": [
+    {
+      "tool_name": "read_multiple_files",
+      "parameters": {}
+    },
+    {
+      "tool_name": "tasks_setup",
+      "parameters": {}
+    },
+    {
+      "tool_name": "tasks_add",
+      "parameters": {}
+    }
+  ],
+  "answer": "Done! Here's a summary of the comparison and what was set up.\n\n## 📊 Log Comparison: yesterday vs. today\n\n| Entry | Yesterday | Today | Status |\n|---|---|---|---|\n| `[INFO] Service started.` | ✅ | ✅ | Unchanged |\n| `[WARN] Disk space low.` | ✅ | ✅ | **⚠️ Persists — unresolved** |\n| `[ERROR] Database connection failed.` | ✅ | ❌ | Gone today (possibly resolved) |\n| `[INFO] User logged in.` | ✅ | ❌ | Missing today (no login recorded) |\n\n## 🔍 Summary of Changes\n\n1. **Disk space low (WARN)** — appears in **both** logs. This is the clearest **unresolved issue** and needs attention.\n2. **Database connection failed (ERROR)** — was logged yesterday but **not** today. This looks improved, but since there's no explicit confirmation of a fix, it's worth verifying the root cause is truly resolved.\n3. **User logged in (INFO)** — present yesterday, absent today. This is likely just a quieter day (no login activity), but could also indicate a logging gap.\n\n## ✅ Tasks Created\n\nI initialized **`tasks.md`** in your project directory (`...\\Late-task-28\\workspace\\tasks.md`) and added the following to-do tasks via the task system:\n\n1. **Resolve low disk space warning** — investigate disk usage and free up space (warning persists across both days).\n2. **Verify database connection stability** — confirm the database connection failure from yesterday is actually fixed and won't recur.\n\nBoth tasks are stored under the `To Do` status in the tasks file, so they're ready to track. Let me know if you'd like me to add any additional follow-ups (e.g., a task to check whether missing user-login entries are expected).",
+  "trajectory_messages": [
+    {
+      "role": "system",
+      "content": "You are an AI agent connected to the MCP (Model Context Protocol) server. Based on the user's request, select and invoke tools to fulfill the task accurately and efficiently. \nNote that do not to ask any questions to the user, just call the tool to complete the task.\n\nConsidering real-time performance, the time is set to be around `2026-10-30 (星期五)`.\n\nThese files are stored in the local file system and serve as relevant resources for tool utilization. Add the prefix path \"C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage2-20261029T220934Z-0fa7c8aa\\Late-task-28\\workspace\" to the following file systems as an absolute path during use:\n`workspace/\n  txt/\n    log_today.txt\n    log_yesterday.txt`\n\nDatabase Configuration (if applicable):\n- Host: 127.0.0.1\n- Port: 3305\n- User: root\n- Password: 123456\n- Database Name: mydb\n"
+    },
+    {
+      "role": "user",
+      "content": "Could you compare the contents of txt/log_yesterday.txt and txt/log_today.txt, summarize what changed, and then create new to-do tasks for anything that looks like an unresolved issue? Please store those tasks in a tasks.md file under my current project directory."
+    },
+    {
+      "content": "I'll start by reading both log files to compare their contents.\n\n",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "call_q9xetymfqf0qpcvv7d5n6lvx",
+          "function": {
+            "arguments": "{\"paths\": [\"C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_yesterday.txt\", \"C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_today.txt\"]}",
+            "name": "files__read_multiple_files"
+          },
+          "type": "function"
+        }
+      ],
+      "reasoning_content": "The user wants me to:\n1. Compare the contents of txt/log_yesterday.txt and txt/log_today.txt\n2. Summarize what changed\n3. Create new to-do tasks for anything that looks like an unresolved issue\n4. Store those tasks in a tasks.md file under the current project directory\n\nLet me start by reading the log files. The workspace path is `C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage2-20261029T220934Z-0fa7c8aa\\Late-task-28\\workspace`.\n\nLet me read both files first."
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_q9xetymfqf0qpcvv7d5n6lvx",
+      "content": "[TextContent(type='text', text='C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_yesterday.txt:\\n[INFO] Service started.\\r\\n[WARN] Disk space low.\\r\\n[ERROR] Database connection failed.\\r\\n[INFO] User logged in.\\n\\n---\\nC:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_today.txt:\\n[INFO] Service started.\\r\\n[W..."
+    },
+    {
+      "content": "The today log appears truncated. Let me read it again individually to get the full content.\n\n",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "call_yqkztce7ve4ne99p9o732tz1",
+          "function": {
+            "arguments": "{\"paths\": [\"C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_today.txt\"]}",
+            "name": "files__read_multiple_files"
+          },
+          "type": "function"
+        },
+        {
+          "id": "call_4fv6y2fhgrrxk4kmb2u5kppj",
+          "function": {
+            "arguments": "{\"paths\": [\"C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_yesterday.txt\"]}",
+            "name": "files__read_multiple_files"
+          },
+          "type": "function"
+        }
+      ],
+      "reasoning_content": "The output seems to be truncated. Let me read the files individually to get the full content. Actually, the output shows the yesterday log fully:\n- [INFO] Service started.\n- [WARN] Disk space low.\n- [ERROR] Database connection failed.\n- [INFO] User logged in.\n\nBut today's log seems truncated. Let me read it again. Actually, the tool may have truncated. Let me try reading them individually, and maybe also use includeMetadata. Actually, let me just read the today file again."
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_yqkztce7ve4ne99p9o732tz1",
+      "content": "[TextContent(type='text', text='C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_today.txt:\\n[INFO] Service started.\\r\\n[WARN] Disk space low.\\n', annotations=None, meta=None)]..."
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_4fv6y2fhgrrxk4kmb2u5kppj",
+      "content": "[TextContent(type='text', text='C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\txt\\\\log_yesterday.txt:\\n[INFO] Service started.\\r\\n[WARN] Disk space low.\\r\\n[ERROR] Database connection failed.\\r\\n[INFO] User logged in.\\n', annotations=None, meta=None)]..."
+    },
+    {
+      "content": "I now have the full contents of both files. Here's what I can see:\n\n**log_yesterday.txt:**\n- `[INFO] Service started.`\n- `[WARN] Disk space low.`\n- `[ERROR] Database connection failed.`\n- `[INFO] User logged in.`\n\n**log_today.txt:**\n- `[INFO] Service started.`\n- `[WARN] Disk space low.`\n\nLet me set up the tasks file so I can store the to-do items, then record the identified issues.\n\n",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "call_yxvzjgikawp5lyvutc6xsrm5",
+          "function": {
+            "arguments": "{\"source_path\": \"C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\\\\tasks.md\", \"workspace\": \"C:\\\\Users\\\\25537\\\\桌面\\\\实用工具\\\\HomeWork\\\\6203\\\\PART 2\\\\MCPEvol-Bench\\\\outputs\\\\stage2-20261029T220934Z-0fa7c8aa\\\\Late-task-28\\\\workspace\"}",
+            "name": "tasks__tasks_setup"
+          },
+          "type": "function"
+        }
+      ],
+      "reasoning_content": "Now I have the full contents:\n\n**log_yesterday.txt:**\n```\n[INFO] Service started.\n[WARN] Disk space low.\n[ERROR] Database connection failed.\n[INFO] User logged in.\n```\n\n**log_today.txt:**\n```\n[INFO] Service started.\n[WARN] Disk space low.\n```\n\nSo the comparison:\n\nYesterday's log:\n- [INFO] Service started.\n- [WARN] Disk space low.\n- [ERROR] Database connection failed.\n- [INFO] User logged in.\n\nToday's log:\n- [INFO] Service started.\n- [WARN] Disk space low.\n\nChanges:\n1. The `[ERROR] Database connection failed.` entry from yesterday is no longer present today — this suggests the database connection issue may have been resolved (no error logged today).\n2. The `[INFO] User logged in.` entry from yesterday is also absent today — no user login was recorded today.\n3. Both logs share `[INFO] Service started.` and `[WARN] Disk space low.`\n\nUnresolved issues to track:\n- Disk space low (WARN still present today — unresolved). This is an ongoing warning that should be addressed (e.g., clean up disk space, monitor disk usage).\n- Potentially: user login not happening today? That may not be an issue necessarily, but could be noteworthy. It could be that no user logged in today, or logging is different. This isn't necessarily an unresolved issue.\n- Database connection failed appeared yesterday but not today — likely resolved, but could warrant verification.\n\nLet me think about what looks like unresolved issues:\n1. Disk space low — the warning persists across both days. This is unresolved and needs action (free up disk space, investigate what's consuming space, set up monitoring/alerting).\n2. Database connection failure — was in yesterday's log but not today's. This could be resolved, but it might be worth verifying/confirming the resolution. However, since it's not in today's log, it may have been fixed. But since we don't have explicit confirmation, it could be a candidate for a task like \"Verify database connection stability.\"\n\nActually, the user asked to create tasks for anything that looks like an unresolved issue. The clear unresolved issue is the low disk space warning which appears in both logs. That's definitely unresolved.\n\nLet me also consider setting up the tasks tools. The user said \"create new to-do tasks for anything that looks like an unresolved issue? Please store those tasks in a tasks.md file under my current project directory.\"\n\nSo they want a tasks.md file. I should also use the mcp-tasks tools since they were provided. The instructions say: \"Always call this once per conversation when asked to use these tools\" — the tasks_setup tool. The user mentions \"create new to-do tasks\" — this aligns with the tasks tools. Let me use tasks_setup with the tasks.md path, then tasks_add to add the tasks.\n\nThe current project directory would be the workspace: `C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage2-20261029T220934Z-0fa7c8aa\\Late-task-28\\workspace`. So the tasks.md file would be at `C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage2-20261029T220934Z-0fa7c8aa\\Late-task-28\\workspace\\tasks.md`.\n\nLet me call tasks_setup to initialize the source file. Then add tasks with tasks_add.\n\nLet me first set up the tasks file. I need to call tasks_setup with source_path = tasks.md path and workspace = workspace path.\n\nThen I can add tasks:\n- \"Address low disk space warning: investigate disk usage and free up space (warning present in both yesterday's and today's logs)\"\n- \"Verify database connection is stable (connection failure logged yesterday; no error logged today — confirm root cause resolved)\"\n- Maybe \"Investigate why no user login was recorded today\" — hmm, that might be overreach. A missing INFO line isn't necessarily an issue. I'll keep it as a note maybe, or a low-priority task. Actually, I could include it as a task to confirm logging completeness. But the user said \"anything that looks like an unresolved issue.\" The absence of \"User logged in\" could just mean nobody logged in. I'll mention it in the summary but not necessarily make it a task. Actually, to be thorough, I could add it as a task to check whether user login activity is expected. Hmm.\n\nLet me be careful and reasonable. The main unresolved issue: Disk space low. Secondary: Database connection (appears resolved, but worth verifying since it failed yesterday). I'll create these two as tasks.\n\nAlso, I should create the tasks.md file content. The tasks_setup tool creates the file if it doesn't exist. Then I should write content to it. But I don't have a write-file tool directly. Hmm — the tasks_setup creates the file, and tasks_add adds tasks to the task system. But does tasks_add write to the tasks.md file? The tool description says \"Add new tasks with a specific status.\" and the setup initializes a source file from a path. So tasks_add likely records tasks associated with the source_id. The tasks.md file may be maintained by the task system.\n\nLet me call tasks_setup first, then tasks_add with the source_id returned.\n\nLet me proceed."
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_yxvzjgikawp5lyvutc6xsrm5",
+      "content": "[TextContent(type='text', text='{\"source\":{\"path\":\"C:\\\\\\\\Users\\\\\\\\25537\\\\\\\\桌面\\\\\\\\实用工具\\\\\\\\HomeWork\\\\\\\\6203\\\\\\\\PART 2\\\\\\\\MCPEvol-Bench\\\\\\\\outputs\\\\\\\\stage2-20261029T220934Z-0fa7c8aa\\\\\\\\Late-task-28\\\\\\\\workspace\\\\\\\\tasks.md\",\"id\":\"q1Gw\"},\"In Progress\":0,\"To Do\":0,\"Backlog\":0,\"Done\":0,\"Reminders\":0,\"Notes\":0,\"Deleted\":0,\"total\":0,\"instructions\":\"Use mcp-tasks tools when the user mentions new or updated tasks\",\"reminders\":[],\"inProgress\":[]}', annotations=None, meta=None)]..."
+    },
+    {
+      "content": "The tasks file is initialized (source ID: `q1Gw`). Now let me add the to-do tasks for the unresolved issues identified from the log comparison.\n\n",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "call_9qircnpumu59sdqqd7vaucaw",
+          "function": {
+            "arguments": "{\"source_id\": \"q1Gw\", \"status\": \"To Do\", \"texts\": [\"Resolve low disk space warning: warning present in BOTH yesterday's and today's logs, so it is still unresolved - investigate disk usage and free up space\", \"Verify database connection stability: ERROR 'Database connection failed' appeared in yesterday's log but NOT in today's log - confirm the root cause is actually fixed and no recurrence\"]}",
+            "name": "tasks__tasks_add"
+          },
+          "type": "function"
+        }
+      ],
+      "reasoning_content": "The tasks file is set up with source ID \"q1Gw\". Now let me add the tasks for the unresolved issues:\n\n1. Low disk space — present in both logs, definitely unresolved.\n2. Database connection failure — was in yesterday's log but not today's; verify it's actually resolved.\n\nLet me add these tasks."
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_9qircnpumu59sdqqd7vaucaw",
+      "content": "[TextContent(type='text', text='{\"source\":{\"path\":\"C:\\\\\\\\Users\\\\\\\\25537\\\\\\\\桌面\\\\\\\\实用工具\\\\\\\\HomeWork\\\\\\\\6203\\\\\\\\PART 2\\\\\\\\MCPEvol-Bench\\\\\\\\outputs\\\\\\\\stage2-20261029T220934Z-0fa7c8aa\\\\\\\\Late-task-28\\\\\\\\workspace\\\\\\\\tasks.md\",\"id\":\"q1Gw\"},\"In Progress\":0,\"To Do\":2,\"Backlog\":0,\"Done\":0,\"Reminders\":0,\"Notes\":0,\"Deleted\":0,\"total\":2,\"added\":[{\"id\":\"aeUw\",\"text\":\"Resolve low disk space warning: warning present in BOTH yesterday\\'s and today\\'s logs, so it is still unresolved - investigate disk usage and..."
+    },
+    {
+      "content": "Done! Here's a summary of the comparison and what was set up.\n\n## 📊 Log Comparison: yesterday vs. today\n\n| Entry | Yesterday | Today | Status |\n|---|---|---|---|\n| `[INFO] Service started.` | ✅ | ✅ | Unchanged |\n| `[WARN] Disk space low.` | ✅ | ✅ | **⚠️ Persists — unresolved** |\n| `[ERROR] Database connection failed.` | ✅ | ❌ | Gone today (possibly resolved) |\n| `[INFO] User logged in.` | ✅ | ❌ | Missing today (no login recorded) |\n\n## 🔍 Summary of Changes\n\n1. **Disk space low (WARN)** — appears in **both** logs. This is the clearest **unresolved issue** and needs attention.\n2. **Database connection failed (ERROR)** — was logged yesterday but **not** today. This looks improved, but since there's no explicit confirmation of a fix, it's worth verifying the root cause is truly resolved.\n3. **User logged in (INFO)** — present yesterday, absent today. This is likely just a quieter day (no login activity), but could also indicate a logging gap.\n\n## ✅ Tasks Created\n\nI initialized **`tasks.md`** in your project directory (`...\\Late-task-28\\workspace\\tasks.md`) and added the following to-do tasks via the task system:\n\n1. **Resolve low disk space warning** — investigate disk usage and free up space (warning persists across both days).\n2. **Verify database connection stability** — confirm the database connection failure from yesterday is actually fixed and won't recur.\n\nBoth tasks are stored under the `To Do` status in the tasks file, so they're ready to track. Let me know if you'd like me to add any additional follow-ups (e.g., a task to check whether missing user-login entries are expected).",
+      "role": "assistant",
+      "reasoning_content": "The tasks have been added successfully. Now let me summarize what changed for the user.\n\nSummary of comparison:\n\n**log_yesterday.txt:**\n1. [INFO] Service started.\n2. [WARN] Disk space low.\n3. [ERROR] Database connection failed.\n4. [INFO] User logged in.\n\n**log_today.txt:**\n1. [INFO] Service started.\n2. [WARN] Disk space low.\n\nChanges:\n- Both logs share: Service started (INFO) and Disk space low (WARN).\n- Removed from today's log: \n  - `[ERROR] Database connection failed.` — no database error today (appears resolved, but worth verifying).\n  - `[INFO] User logged in.` — no user login recorded today (may simply mean no user logged in, or logging gap — worth noting).\n\nUnresolved issue (persistent):\n- Disk space low — present in both logs.\n\nTasks created (in tasks.md):\n1. Resolve low disk space warning.\n2. Verify database connection stability.\n\nI should present this summary clearly to the user."
+    }
+  ],
+  "stop": true,
+  "exceeded": false,
+  "involved_tools": [
+    {
+      "name": "files__read_multiple_files",
+      "description": "Read the contents of multiple files in one call. Provide a list of file paths to read, and optionally specify an encoding, whether to include file metadata, whether to ignore read errors, and a separator string between file contents.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "encoding": {
+            "default": "utf-8",
+            "description": "File encoding (default: utf-8)",
+            "type": "string"
+          },
+          "ignoreErrors": {
+            "default": false,
+            "description": "Silently skip files that cannot be read instead of including error messages",
+            "type": "boolean"
+          },
+          "includeMetadata": {
+            "default": false,
+            "description": "Prepend file metadata (size, last modified) before each file's content",
+            "type": "boolean"
+          },
+          "paths": {
+            "description": "Array of file paths to read",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "separator": {
+            "default": "---",
+            "description": "Separator string inserted between file contents (default: '---')",
+            "type": "string"
+          }
+        },
+        "required": [
+          "paths"
+        ],
+        "type": "object"
+      },
+      "source_name": "read_multiple_files",
+      "source_server": "mcp-filesystem-server"
+    },
+    {
+      "name": "tasks__tasks_add",
+      "description": "Add new tasks with a specific status. It's faster and cheaper if you use this in batch. User can add atomically while AI works using the CLI add tool",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "index": {
+            "description": "0-based index to place the tasks. e.g.:\n- 0 for \"Do this next\"\n- Omit to place at the end (\"Do this later\")",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "source_id": {
+            "description": "Source ID from task_setup() response\n- Defaults to most recent in the workspace if not provided\n- Try to always provide it!\n- If you don't have it, ask the user for a file path and call task_setup()",
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "description": "You might need to infer it from the context:\n- \"To Do\" for tasks coming up next (e.g. \"Do X next\")\n- \"In Progress\" for what you'll do now (e.g. \"First do X\")\n- \"Reminders\" instructions for you (the AI) to be constantly reminded of\n- \"Notes\" to collect non-actionable notes",
+            "enum": [
+              "In Progress",
+              "To Do",
+              "Backlog",
+              "Done",
+              "Reminders",
+              "Notes",
+              "Deleted"
+            ],
+            "type": "string"
+          },
+          "texts": {
+            "description": "Each text becomes a task",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "texts",
+          "status"
+        ],
+        "type": "object"
+      },
+      "source_name": "tasks_add",
+      "source_server": "mcp-tasks"
+    },
+    {
+      "name": "tasks__tasks_setup",
+      "description": "Initializes a source file from a path.\n- Always call this once per conversation when asked to use these tools\n- If the file path is not provided, ask the user to clarify it before calling this tool\n- Creates the file if it does not already exist\n- Returns the source ID for subsequent use\n- Use mcp-tasks tools when the user mentions new or updated tasks",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "source_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "workspace": {
+            "description": "Workspace or project directory path, typically provided by the IDE or set to $PWD",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_path"
+        ],
+        "type": "object"
+      },
+      "source_name": "tasks_setup",
+      "source_server": "mcp-tasks"
+    }
+  ]
+}

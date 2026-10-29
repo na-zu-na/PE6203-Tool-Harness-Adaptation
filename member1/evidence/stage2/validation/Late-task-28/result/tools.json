@@ -1,0 +1,117 @@
+[
+  {
+    "name": "files__read_multiple_files",
+    "description": "Read the contents of multiple files in one call. Provide a list of file paths to read, and optionally specify an encoding, whether to include file metadata, whether to ignore read errors, and a separator string between file contents.",
+    "inputSchema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "default": "utf-8",
+          "description": "File encoding (default: utf-8)",
+          "type": "string"
+        },
+        "ignoreErrors": {
+          "default": false,
+          "description": "Silently skip files that cannot be read instead of including error messages",
+          "type": "boolean"
+        },
+        "includeMetadata": {
+          "default": false,
+          "description": "Prepend file metadata (size, last modified) before each file's content",
+          "type": "boolean"
+        },
+        "paths": {
+          "description": "Array of file paths to read",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "separator": {
+          "default": "---",
+          "description": "Separator string inserted between file contents (default: '---')",
+          "type": "string"
+        }
+      },
+      "required": [
+        "paths"
+      ],
+      "type": "object"
+    },
+    "source_name": "read_multiple_files",
+    "source_server": "mcp-filesystem-server"
+  },
+  {
+    "name": "tasks__tasks_add",
+    "description": "Add new tasks with a specific status. It's faster and cheaper if you use this in batch. User can add atomically while AI works using the CLI add tool",
+    "inputSchema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "description": "0-based index to place the tasks. e.g.:\n- 0 for \"Do this next\"\n- Omit to place at the end (\"Do this later\")",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "source_id": {
+          "description": "Source ID from task_setup() response\n- Defaults to most recent in the workspace if not provided\n- Try to always provide it!\n- If you don't have it, ask the user for a file path and call task_setup()",
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "description": "You might need to infer it from the context:\n- \"To Do\" for tasks coming up next (e.g. \"Do X next\")\n- \"In Progress\" for what you'll do now (e.g. \"First do X\")\n- \"Reminders\" instructions for you (the AI) to be constantly reminded of\n- \"Notes\" to collect non-actionable notes",
+          "enum": [
+            "In Progress",
+            "To Do",
+            "Backlog",
+            "Done",
+            "Reminders",
+            "Notes",
+            "Deleted"
+          ],
+          "type": "string"
+        },
+        "texts": {
+          "description": "Each text becomes a task",
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "texts",
+        "status"
+      ],
+      "type": "object"
+    },
+    "source_name": "tasks_add",
+    "source_server": "mcp-tasks"
+  },
+  {
+    "name": "tasks__tasks_setup",
+    "description": "Initializes a source file from a path.\n- Always call this once per conversation when asked to use these tools\n- If the file path is not provided, ask the user to clarify it before calling this tool\n- Creates the file if it does not already exist\n- Returns the source ID for subsequent use\n- Use mcp-tasks tools when the user mentions new or updated tasks",
+    "inputSchema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "additionalProperties": false,
+      "properties": {
+        "source_path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "workspace": {
+          "description": "Workspace or project directory path, typically provided by the IDE or set to $PWD",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_path"
+      ],
+      "type": "object"
+    },
+    "source_name": "tasks_setup",
+    "source_server": "mcp-tasks"
+  }
+]

@@ -5,6 +5,9 @@
   "description": "Local MCP dependencies for the MCPEvol-Bench stage-one run",
   "dependencies": {
     "@1mcp/agent": "0.39.6",
-    "@guanxiong/mcp-server-time": "1.0.0"
+    "@guanxiong/mcp-server-time": "1.0.0",
+    "time-mcp": "1.0.6",
+    "mcp-filesystem-server": "1.0.3",
+    "mcp-tasks": "1.6.1"
   }
 }

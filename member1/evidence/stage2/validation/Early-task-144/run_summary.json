@@ -1,0 +1,51 @@
+{
+  "version": "Early",
+  "task_id": 144,
+  "status": "completed",
+  "run_dir": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage2-20261029T220934Z-0fa7c8aa\\Early-task-144",
+  "run_id": "20261029T221017Z-6be9efc6",
+  "environment": "original",
+  "strategy": "environment_smoke",
+  "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+  "model": "deepseek-v4-flash-ga-260731",
+  "temperature": 0.2,
+  "max_completion_tokens": 4096,
+  "stop_policy": "final_text_after_tool_result",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "mcp_url": "http://127.0.0.1:3051/mcp",
+  "mode": "live_model",
+  "started_utc": "2026-10-29T22:10:17.409891+00:00",
+  "knowledge_mode": "live_catalog_with_official_description_layers",
+  "manifest_sha256": "8cbff7027a5f45a2126402d17b71ba83c24a2377715ed1732e03f9f547ef9af7",
+  "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+  "evolution_layers": [],
+  "services": {
+    "time_py": {
+      "original_server": "time",
+      "package": "mcp-server-time",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\.venv\\Scripts\\mcp-server-time.exe",
+      "entry_sha256": "9feb978bccdac0dfa9a8c5a9f913fca4934fcc0642bfce0772787c9881606c35"
+    },
+    "time_mcp": {
+      "original_server": "time-mcp",
+      "package": "time-mcp",
+      "entry_path": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\node_modules\\time-mcp\\.mcpevol\\original\\dist\\index.js",
+      "entry_sha256": "4d142d9a98d64f892cad5b50b5ebff09d534d9f466db277008eea2b3fe04e3b0"
+    }
+  },
+  "workspace": "C:\\Users\\25537\\桌面\\实用工具\\HomeWork\\6203\\PART 2\\MCPEvol-Bench\\outputs\\stage2-20261029T220934Z-0fa7c8aa\\Early-task-144\\workspace",
+  "project_commit": "0673c6ec7d705ef483f56d85271572afd10f1b4e",
+  "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+  "runner_sha256": "23e67b7a14de57231e9c553eb73d8800c5a9166a275b377689bb4dbb1db8d536",
+  "agent_sha256": "cd762a7d06f18bba8104388b25f50f1210e11b7081c12bcbacbb6f96044dc793",
+  "task_source_sha256": "1370d7f9ee4ec8f8635dd6af3a6e7e41e790b4be86d0e3de4990774ac99fbae2",
+  "max_round": 10,
+  "tool_calls": 4,
+  "successful_tool_results": 4,
+  "stop": true,
+  "exceeded": false,
+  "finished_utc": "2026-10-29T22:10:31.595779+00:00",
+  "exit_code": 0,
+  "process_stopped": true
+}

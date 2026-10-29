@@ -1,0 +1,709 @@
+{
+  "tools": [
+    {
+      "name": "files_1mcp_create_directory",
+      "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "description": "The path to the directory",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "create_directory"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_directory_tree",
+      "description": "Get a recursive tree view of files and directories as a JSON structure.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "includeFiles": {
+            "default": true,
+            "description": "Include files in the output",
+            "type": "boolean"
+          },
+          "maxDepth": {
+            "default": 10,
+            "description": "Maximum depth to traverse",
+            "type": "number"
+          },
+          "path": {
+            "description": "The path to the directory",
+            "type": "string"
+          },
+          "showHidden": {
+            "default": false,
+            "description": "Show hidden files starting with .",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "directory_tree"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_edit_file",
+      "description": "Make line-based edits to a text file. Each edit replaces exact line sequences with new content. Returns a git-style diff showing the changes made.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "dryRun": {
+            "default": false,
+            "description": "Preview changes using git-style diff format",
+            "type": "boolean"
+          },
+          "edits": {
+            "description": "Array of edit operations",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "newText": {
+                  "description": "Text to replace with",
+                  "type": "string"
+                },
+                "oldText": {
+                  "description": "Text to search for - must match exactly",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "oldText",
+                "newText"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "path": {
+            "description": "The path to the file",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "edits"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "edit_file"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_get_file_info",
+      "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last modified time, permissions, and type.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "description": "The path to the file or directory",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "get_file_info"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_get_pwd",
+      "description": "Returns the current working directory (pwd), which is used as the base for relative paths.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {},
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "get_pwd"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_list_directory",
+      "description": "Get a detailed listing of all files and directories in a specified path. Results clearly distinguish between files and directories with [FILE] and [DIR] prefixes.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "description": "The path to the directory",
+            "type": "string"
+          },
+          "showHidden": {
+            "default": false,
+            "description": "Show hidden files starting with .",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "list_directory"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_list_directory_info",
+      "description": "Returns information about the filesystem server.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {},
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "list_directory_info"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_move_file",
+      "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "destination": {
+            "description": "The destination file or directory path",
+            "type": "string"
+          },
+          "overwrite": {
+            "default": false,
+            "description": "Overwrite destination if it exists",
+            "type": "boolean"
+          },
+          "source": {
+            "description": "The source file or directory path",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source",
+          "destination"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "move_file"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_read_binary_file",
+      "description": "Read a binary file and return its contents as base64 encoded string.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "description": "The path to the binary file",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "read_binary_file"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_read_file",
+      "description": "Read the complete contents of a file from the file system. Handles various text encodings and provides detailed error messages if the file cannot be read.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "encoding": {
+            "default": "utf-8",
+            "description": "File encoding (default: utf-8)",
+            "type": "string"
+          },
+          "path": {
+            "description": "The path to the file",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "read_file"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_read_multiple_files",
+      "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare multiple files.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "encoding": {
+            "default": "utf-8",
+            "description": "File encoding (default: utf-8)",
+            "type": "string"
+          },
+          "paths": {
+            "description": "Array of file paths to read",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "paths"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "read_multiple_files"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_search_files",
+      "description": "Recursively search for files and directories matching a pattern. Searches through all subdirectories from the starting path.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "excludePatterns": {
+            "default": [],
+            "description": "Patterns to exclude from search",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "maxDepth": {
+            "default": 20,
+            "description": "Maximum depth to search",
+            "type": "number"
+          },
+          "maxResults": {
+            "default": 1000,
+            "description": "Maximum number of results to return",
+            "type": "number"
+          },
+          "path": {
+            "description": "The starting directory path",
+            "type": "string"
+          },
+          "pattern": {
+            "description": "The search pattern",
+            "type": "string"
+          },
+          "searchContents": {
+            "default": false,
+            "description": "Search file contents instead of just names",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "path",
+          "pattern"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "search_files"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "files_1mcp_write_file",
+      "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without warning.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "content": {
+            "description": "The content to write to the file",
+            "type": "string"
+          },
+          "createDirectories": {
+            "default": false,
+            "description": "Create parent directories if they don't exist",
+            "type": "boolean"
+          },
+          "path": {
+            "description": "The path to the file",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ],
+        "type": "object"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "files",
+          "upstreamIdentity": "write_file"
+        }
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "tasks_1mcp_tasks_add",
+      "description": "Add new tasks with a specific status. It's faster and cheaper if you use this in batch. User can add atomically while AI works using the CLI add tool",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "index": {
+            "description": "0-based index to place the tasks. e.g.:\n- 0 for \"Do this next\"\n- Omit to place at the end (\"Do this later\")",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "source_id": {
+            "description": "Source ID from task_setup() response\n- Defaults to most recent in the workspace if not provided\n- Try to always provide it!\n- If you don't have it, ask the user for a file path and call task_setup()",
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "description": "You might need to infer it from the context:\n- \"To Do\" for tasks coming up next (e.g. \"Do X next\")\n- \"In Progress\" for what you'll do now (e.g. \"First do X\")\n- \"Reminders\" instructions for you (the AI) to be constantly reminded of\n- \"Notes\" to collect non-actionable notes",
+            "enum": [
+              "In Progress",
+              "To Do",
+              "Backlog",
+              "Done",
+              "Reminders",
+              "Notes",
+              "Deleted"
+            ],
+            "type": "string"
+          },
+          "texts": {
+            "description": "Each text becomes a task",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "texts",
+          "status"
+        ],
+        "type": "object"
+      },
+      "annotations": {
+        "title": "tasks_add",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "tasks",
+          "upstreamIdentity": "tasks_add"
+        }
+      }
+    },
+    {
+      "name": "tasks_1mcp_tasks_search",
+      "description": "Search tasks from specific statuses with optional text & ID filtering",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "description": "Optional list of task IDs to search for",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "limit": {
+            "description": "Maximum number of results (only for really large task lists)",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "source_id": {
+            "description": "Source ID from task_setup() response\n- Defaults to most recent in the workspace if not provided\n- Try to always provide it!\n- If you don't have it, ask the user for a file path and call task_setup()",
+            "minLength": 1,
+            "type": "string"
+          },
+          "statuses": {
+            "description": "Specific statuses to get. Gets all if omitted",
+            "items": {
+              "description": "You might need to infer it from the context:\n- \"To Do\" for tasks coming up next (e.g. \"Do X next\")\n- \"In Progress\" for what you'll do now (e.g. \"First do X\")\n- \"Reminders\" instructions for you (the AI) to be constantly reminded of\n- \"Notes\" to collect non-actionable notes",
+              "enum": [
+                "In Progress",
+                "To Do",
+                "Backlog",
+                "Done",
+                "Reminders",
+                "Notes",
+                "Deleted"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "terms": {
+            "description": "Search terms to filter tasks by text or status (case-insensitive, OR logic, no regex or wildcards)",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "annotations": {
+        "title": "tasks_search",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "tasks",
+          "upstreamIdentity": "tasks_search"
+        }
+      }
+    },
+    {
+      "name": "tasks_1mcp_tasks_setup",
+      "description": "Initializes an source file from a path\n- Always call once per conversation when asked to use these tools\n- Ask the user to clarify the file path if not given, before calling this tool\n- Creates the file if it does not exist\n- Returns the source ID for further use\n- Use mcp-tasks tools when the user mentions new or updated tasks",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "source_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "workspace": {
+            "description": "Workspace/project directory path (provided by the IDE or use $PWD)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_path"
+        ],
+        "type": "object"
+      },
+      "annotations": {
+        "title": "tasks_setup",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "tasks",
+          "upstreamIdentity": "tasks_setup"
+        }
+      }
+    },
+    {
+      "name": "tasks_1mcp_tasks_summary",
+      "description": "Get per-status task counts and the WIP task(s). Redundant right after tasks_add/tasks_update",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "description": "Source ID from task_setup() response\n- Defaults to most recent in the workspace if not provided\n- Try to always provide it!\n- If you don't have it, ask the user for a file path and call task_setup()",
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "annotations": {
+        "title": "tasks_summary",
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "tasks",
+          "upstreamIdentity": "tasks_summary"
+        }
+      }
+    },
+    {
+      "name": "tasks_1mcp_tasks_update",
+      "description": "Update tasks in bulk by ID to a different status. Returns complete summary no need to call tasks_summary afterwards. Prevents AI accidentally rename or deleting tasks during mass updates, not even possible",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "description": "The IDs of existing tasks",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "index": {
+            "description": "0-based index to place the tasks. e.g.:\n- 0 for \"Do this next\"\n- Omit to place at the end (\"Do this later\")",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "source_id": {
+            "description": "Source ID from task_setup() response\n- Defaults to most recent in the workspace if not provided\n- Try to always provide it!\n- If you don't have it, ask the user for a file path and call task_setup()",
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "description": "You might need to infer it from the context:\n- \"To Do\" for tasks coming up next (e.g. \"Do X next\")\n- \"In Progress\" for what you'll do now (e.g. \"First do X\")\n- \"Reminders\" instructions for you (the AI) to be constantly reminded of\n- \"Notes\" to collect non-actionable notes",
+                "enum": [
+                  "In Progress",
+                  "To Do",
+                  "Backlog",
+                  "Done",
+                  "Reminders",
+                  "Notes",
+                  "Deleted"
+                ],
+                "type": "string"
+              },
+              {
+                "const": "Deleted",
+                "type": "string"
+              }
+            ],
+            "description": "You might need to infer it from the context:\n- \"To Do\" for tasks coming up next (e.g. \"Do X next\")\n- \"In Progress\" for what you'll do now (e.g. \"First do X\")\n- \"Reminders\" instructions for you (the AI) to be constantly reminded of\n- \"Notes\" to collect non-actionable notes\n- \"Deleted\" when they want these removed\n- Updating tasks to In Progress moves others to To Do, finishing a In Progress task moves the first Done to In Progress"
+          }
+        },
+        "required": [
+          "ids",
+          "status"
+        ],
+        "type": "object"
+      },
+      "annotations": {
+        "title": "tasks_update",
+        "readOnlyHint": false,
+        "openWorldHint": false
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "tasks",
+          "upstreamIdentity": "tasks_update"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Preserve the exact bytes extracted from the official archives for SHA-256 checks.
+member1/snapshots/** -text -whitespace
+# Raw model/server evidence also keeps its original line endings and spacing.
+member1/evidence/** -text -whitespace

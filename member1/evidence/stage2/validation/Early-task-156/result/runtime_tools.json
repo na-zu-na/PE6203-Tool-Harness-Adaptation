@@ -1,0 +1,94 @@
+{
+  "tools": [
+    {
+      "name": "calculator_1mcp_calculate",
+      "description": "Calculates/evaluates the given expression.",
+      "inputSchema": {
+        "properties": {
+          "expression": {
+            "title": "Expression",
+            "type": "string"
+          }
+        },
+        "required": [
+          "expression"
+        ],
+        "title": "calculateArguments",
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "title": "Result",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "calculateOutput",
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "calculator",
+          "upstreamIdentity": "calculate"
+        }
+      }
+    },
+    {
+      "name": "clock_1mcp_get_current_time",
+      "description": "获取当前日期和时间",
+      "inputSchema": {
+        "properties": {
+          "format": {
+            "description": "时间格式：'iso'（ISO 8601）、'locale'（本地格式）、'timestamp'（时间戳）。默认为 'iso'",
+            "enum": [
+              "iso",
+              "locale",
+              "timestamp"
+            ],
+            "type": "string"
+          },
+          "timezone": {
+            "description": "时区（例如：Asia/Shanghai, UTC, America/New_York）。默认为系统时区",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "clock",
+          "upstreamIdentity": "get_current_time"
+        }
+      }
+    },
+    {
+      "name": "clock_1mcp_get_time_info",
+      "description": "获取详细的时间信息，包括年、月、日、时、分、秒等",
+      "inputSchema": {
+        "properties": {
+          "timezone": {
+            "description": "时区（例如：Asia/Shanghai, UTC）。默认为系统时区",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "meta": {
+        "app.1mcp/route": {
+          "kind": "tools",
+          "server": "clock",
+          "upstreamIdentity": "get_time_info"
+        }
+      }
+    }
+  ]
+}

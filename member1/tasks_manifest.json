@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "frozen_on": "2026-10-30",
+  "selection_rule": "Fixed before stage-two model runs: three official tasks, covering local file state, description evolution, parameter evolution and an added tool; no extra commercial-service credentials.",
+  "benchmark_commit": "888c779a0fe735f612ca62bdd1fdd7c9e6bf8701",
+  "artifact_revision": "162e3ffbea1717ac8a20fe9b26465e29117229e4",
+  "versions": {
+    "Early": {"snapshot": "original", "evolution_layers": [], "port": 3051},
+    "Middle": {"snapshot": "iter3", "evolution_layers": [1], "port": 3053},
+    "Late": {"snapshot": "iter5", "evolution_layers": [1, 2, 3, 4], "port": 3055}
+  },
+  "services": {
+    "@guanxiong/mcp-server-time": {"alias": "clock", "package": "@guanxiong/mcp-server-time", "entry": "index.js", "kind": "node"},
+    "calculator": {"alias": "calculator", "package": "mcp-server-calculator", "kind": "python"},
+    "time-mcp": {"alias": "time_mcp", "package": "time-mcp", "entry": "dist/index.js", "kind": "node"},
+    "time": {"alias": "time_py", "package": "mcp-server-time", "kind": "python"},
+    "mcp-filesystem-server": {"alias": "files", "package": "mcp-filesystem-server", "entry": "server.js", "kind": "node"},
+    "mcp-tasks": {"alias": "tasks", "package": "mcp-tasks", "entry": "dist/index.js", "kind": "node"}
+  },
+  "fixtures": ["txt/log_yesterday.txt", "txt/log_today.txt"],
+  "tasks": [
+    {"id": 28, "summary_zh": "比较两份日志并在 tasks.md 中创建待办", "services": ["mcp-filesystem-server", "mcp-tasks"], "change_types": ["PARAM", "DESC"], "notes": "Middle list_directory gains optional sorting parameters; Late read_multiple_files adds optional metadata/error/separator parameters and description changes, and tasks_setup description evolves. Use an isolated workspace and fresh task-source registry."},
+    {"id": 144, "summary_zh": "查询东京当前时间并转换为纽约时间", "services": ["time-mcp", "time"], "change_types": ["DESC"], "notes": "time-mcp descriptions change across layers; time remains unchanged. The two convert_time tools require distinct model-facing names."},
+    {"id": 156, "summary_zh": "计算东京当天已过去的秒数", "services": ["@guanxiong/mcp-server-time", "calculator"], "change_types": ["PARAM", "TOOL"], "notes": "Middle get_time_info has new optional parameters; Late adds convert_timezone and its evolved parameters. The added tool is available but not required by this question; do not claim the task forces a tool migration."}
+  ]
+}
